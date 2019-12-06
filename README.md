@@ -32,7 +32,7 @@ No que se refere aos recursos futuros, existem um pequeno planejamento no qual a
 ## Autor
 <img src= "https://avatars3.githubusercontent.com/u/36136627?s=400&v=4" width="170" height="170">
 
-**Github:** [@caiodepaulasilva](https://github.com/caiodepaulasilva)
+**Github:** [@caiodepaulasilva](https://github.com/caiodepaulasilva) <br>
 **Medium:** [@caiodepaulasilva](https://medium.com/@caiodepaulasilva)
 
 ### Contribua:
