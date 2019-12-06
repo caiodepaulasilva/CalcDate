@@ -112,7 +112,7 @@ class Calculate extends StatelessWidget {
     } else if (datas['maiorData'].day == datas['menorData'].day) {
       qtdeDias = 0;
     } else {
-      qtdeDias = datas['maiorData'].day;
+      qtdeDias = diasMesAtual - (datas['menorData'].day - datas['maiorData'].day) + 1;
     }
 
     resultados.add(qtdeAnos);
