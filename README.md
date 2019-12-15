@@ -2,7 +2,7 @@
 
 Um **objeto de cálculo** desenvolvido para os entusiastas de equações que envolvam períodos, intervalos e datas. O aplicativo ***CalcDate*** busca reunir através da abstração de uma máquina calculadora, diversos recursos que possam realizar equações relacionadas a entradas  de formato cronológico.
 
-<img src="https://user-images.githubusercontent.com/36136627/70867339-2f07ac00-1f53-11ea-922c-4c76e80742b9.png" width="240" height="430"> <img src="https://user-images.githubusercontent.com/36136627/70867340-2fa04280-1f53-11ea-91e6-59d1a7a4225f.png" width="240" height="430">
+<img src="https://user-images.githubusercontent.com/36136627/70867340-2fa04280-1f53-11ea-91e6-59d1a7a4225f.png" width="240" height="430"> <img src="https://user-images.githubusercontent.com/36136627/70867339-2f07ac00-1f53-11ea-922c-4c76e80742b9.png" width="240" height="430">
 <img src="https://user-images.githubusercontent.com/36136627/70867341-316a0600-1f53-11ea-919a-d2a6020ce958.png" width="240" height="430">
 
 # Novos recursos
