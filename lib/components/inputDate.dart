@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:dateCalculator/menus/choiceMenu.dart';
 import 'package:flutter/services.dart';
 import 'package:dateCalculator/components/calculate.dart';
-// import 'package:dateCalculator/language.json';
-// import 'package:flutter_masked_text/flutter_masked_text.dart';
 
 class InputDate extends StatefulWidget {
   InputDate({Key key});
@@ -14,52 +12,44 @@ class InputDate extends StatefulWidget {
 }
 
 class _InputDateState extends State<InputDate> {
-  DateTime firstDate;
-  DateTime secondDate;
-  String returnInputDate;
-  int firstPrecision;
-  int secondPrecision;
-
-  final firstTextController = TextEditingController();
-  final secondTextController = TextEditingController();
-  // final firstTextController = MaskedTextController(mask: '00-00-0000');
-  // final secondTextController = MaskedTextController(mask: '00-00-0000');
+  DateTime date1;
+  DateTime date2;
+  Object choiceMenu;
+  int precision1;
+  int precision2;
 
   void initState() {
     super.initState();
 
-    firstDate = DateTime.now();
-    secondDate = DateTime.now();
-    returnInputDate = '3' + '|' + '${DateTime.now()}';
-  }
-
-  void correctTextController(
-      DateTime date, int precision, int entradaSelecionada) {
-    String formatoEntrada;
-
-    setState(() {
-      date = date;
-    });
-
-    if (precision == 1) {
-      formatoEntrada = '${date.year}';
-    }
-    if (precision == 2) {
-      formatoEntrada = '${date.month.toString().padLeft(2, '0')}-${date.year}';
-    }
-    if (precision == 3) {
-      formatoEntrada =
-          '${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}';
-    }
-
-    if (entradaSelecionada == 1)
-      firstTextController.text = formatoEntrada;
-    else if (entradaSelecionada == 2)
-      secondTextController.text = formatoEntrada;
+    date1 = DateTime.now();
+    date2 = DateTime.now();
+    choiceMenu = {'precision': 3, 'date': DateTime.now()};
   }
 
   @override
   Widget build(BuildContext context) {
+    final inputDate1 = TextEditingController();
+    final inputDate2 = TextEditingController();
+
+    void textController(DateTime date, int precision, int position) {
+      String formatoEntrada(int precision) {
+        if (precision == 1) {
+          return '${date.year}';
+        }
+        if (precision == 2) {
+          return '${date.month.toString().padLeft(2, '0')}-${date.year}';
+        }
+        if (precision == 3) {
+          return '${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}';
+        } else
+          return 'Invalid Format';
+      }
+
+      if (position == 1)
+        inputDate1.text = formatoEntrada(precision);
+      else if (position == 2) inputDate2.text = formatoEntrada(precision);
+    }
+
     return Column(
       children: <Widget>[
         Row(
@@ -71,8 +61,6 @@ class _InputDateState extends State<InputDate> {
               margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
               width: 310,
               child: TextField(
-                // toolbarOptions: ToolbarOptions(
-                //     copy: false, paste: false, selectAll: true, cut: false),
                 textInputAction: TextInputAction.done,
                 scrollPadding: EdgeInsets.all(110),
                 keyboardAppearance: Brightness.dark,
@@ -80,13 +68,13 @@ class _InputDateState extends State<InputDate> {
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
                 maxLines: 1,
                 keyboardType: TextInputType.number,
-                controller: firstTextController,
+                controller: inputDate1,
                 cursorColor: Colors.white,
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
                     onPressed: () {
-                      WidgetsBinding.instance.addPostFrameCallback(
-                          (_) => firstTextController.clear());
+                      WidgetsBinding.instance
+                          .addPostFrameCallback((_) => inputDate1.clear());
                     },
                     icon: Icon(
                       Icons.close,
@@ -118,19 +106,17 @@ class _InputDateState extends State<InputDate> {
                       EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
                   child: Icon(Icons.calendar_today),
                   onPressed: () async {
-                    returnInputDate = await showDialog(
+                    choiceMenu = await showDialog(
                         context: context,
-                        builder: (context) => ChoiceMenu(input: 1));
+                        builder: (context) => ChoiceMenu(position: 1));
 
-                    if (returnInputDate == null) {
-                      firstDate = DateTime.now();
-                      firstPrecision = 3;
-                    } else {
-                      firstDate = DateTime.parse(returnInputDate.substring(2));
-                      firstPrecision =
-                          int.parse(returnInputDate.substring(0, 1));
+                    if (choiceMenu != null &&
+                        Map.castFrom(choiceMenu)['date'] != null) {
+                      date1 = Map.castFrom(choiceMenu)['date'];
+                      precision1 = Map.castFrom(choiceMenu)['precision'];
+
+                      textController(date1, precision1, 1);
                     }
-                    correctTextController(firstDate, firstPrecision, 1);
                   }),
             ),
           ],
@@ -155,12 +141,12 @@ class _InputDateState extends State<InputDate> {
                 maxLines: 1,
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
                 keyboardType: TextInputType.number,
-                controller: secondTextController,
+                controller: inputDate2,
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
                     onPressed: () {
-                      WidgetsBinding.instance.addPostFrameCallback(
-                          (_) => secondTextController.clear());
+                      WidgetsBinding.instance
+                          .addPostFrameCallback((_) => inputDate2.clear());
                     },
                     icon: Icon(
                       Icons.close,
@@ -175,7 +161,7 @@ class _InputDateState extends State<InputDate> {
                   border: const OutlineInputBorder(
                       borderSide:
                           const BorderSide(color: Colors.white, width: 0.0)),
-                  labelText:("Segunda Data"),
+                  labelText: ("Segunda Data"),
                 ),
                 textAlign: TextAlign.start,
               ),
@@ -192,20 +178,17 @@ class _InputDateState extends State<InputDate> {
                       EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
                   child: Icon(Icons.calendar_today),
                   onPressed: () async {
-                    returnInputDate = await showDialog(
+                    choiceMenu = await showDialog(
                         context: context,
-                        builder: (context) => ChoiceMenu(input: 2));
+                        builder: (context) => ChoiceMenu(position: 1));
 
-                    if (returnInputDate == null) {
-                      secondDate = DateTime.now();
-                      secondPrecision = 3;
-                    } else {
-                      secondDate = DateTime.parse(returnInputDate.substring(2));
-                      secondPrecision =
-                          int.parse(returnInputDate.substring(0, 1));
+                     if (choiceMenu != null &&
+                        Map.castFrom(choiceMenu)['date'] != null) {
+                      date2 = Map.castFrom(choiceMenu)['date'];
+                      precision2 = Map.castFrom(choiceMenu)['precision'];
+
+                      textController(date2, precision2, 1);
                     }
-
-                    correctTextController(secondDate, secondPrecision, 2);
                   }),
             ),
           ],
@@ -213,7 +196,7 @@ class _InputDateState extends State<InputDate> {
         Padding(
           padding: EdgeInsets.only(top: 25),
         ),
-        Calculate(firstDate, secondDate),
+        Calculate(date1, date2),
         Padding(
           padding: EdgeInsets.only(bottom: 25),
         ),

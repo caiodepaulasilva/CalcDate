@@ -4,21 +4,21 @@ import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart
 
 class DatePickerMenu extends StatefulWidget {
   final precision;
-  final input;
-  DatePickerMenu({Key key, int precision, int input})
+  final position;
+  DatePickerMenu({Key key, int precision, int position})
       : this.precision = precision,
-        this.input = input;
+        this.position = position;
 
   @override
   State<StatefulWidget> createState() =>
-      _DatePickerMenuState(precision: this.precision, input: this.input);
+      _DatePickerMenuState(precision: this.precision, position: this.position);
 }
 
 class _DatePickerMenuState extends State<DatePickerMenu> {
   final int precision;
-  final int input;
+  final int position;
 
-  _DatePickerMenuState({this.precision, this.input});
+  _DatePickerMenuState({this.precision, this.position});
 
   DateTime _dateTime;
   String minDatetime = '0000-01-01';
@@ -34,11 +34,11 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
     _dateTime = DateTime.parse(initDatetime);
   }
 
-  String maxDateTime(int input) {
-    if (input == 2) {
+  String maxDateTime(int position) {
+    if (position == 2) {
       return maxDatetime = '9999-12-31';
     }
-    if (input == 1) {
+    if (position == 1) {
       return maxDatetime = DateTime.now().toString();
     } else {
       return maxDatetime = DateTime.now().toString();
@@ -92,7 +92,7 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
             margin: EdgeInsets.only(bottom: 5.0),
             child: DatePickerWidget(
               minDateTime: DateTime.parse(minDatetime),
-              maxDateTime: DateTime.parse(maxDateTime(input)),
+              maxDateTime: DateTime.parse(maxDateTime(position)),
               initialDateTime: DateTime.parse(initDatetime),
               onConfirm: (dateTime, selectedIndex) {},
               dateFormat: choiceFormat(precision),
@@ -134,7 +134,7 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                         ("Cancelar"),
                             style: TextStyle(fontSize: 16)),
                         onPressed: () {
-                          Navigator.pop(context, _dateTime);
+                          Navigator.pop(context,null);
                         })),
                 Container(
                     width: 130,
