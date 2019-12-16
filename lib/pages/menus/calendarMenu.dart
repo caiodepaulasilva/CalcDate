@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
+import 'package:dateCalculator/localization/demolocalizations.dart';
 
 class DatePickerMenu extends StatefulWidget {
   final precision;
@@ -73,7 +74,7 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
               Padding(
                 padding: EdgeInsets.only(bottom: 5.0),
                 child: Text(
-                    ("Selecione a data"),
+                    DemoLocalizations.of(context).trans("Text - DialogDate"),
                     style: Theme.of(context).textTheme.title),
               ),
               // Container(
@@ -131,10 +132,11 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
                         child: Text(
-                        ("Cancelar"),
+                            DemoLocalizations.of(context)
+                                .trans("Button 1 - DialogDate"),
                             style: TextStyle(fontSize: 16)),
                         onPressed: () {
-                          Navigator.pop(context,null);
+                          Navigator.pop(context, null);
                         })),
                 Container(
                     width: 130,
@@ -148,9 +150,9 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                         highlightColor: Colors.yellowAccent[400],
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
-                        child: Text(
-                        ("Confirmar"),
-                            style: TextStyle(fontSize: 16)),
+                        child:
+                            Text( DemoLocalizations.of(context)
+                                .trans("Button 2 - DialogDate"), style: TextStyle(fontSize: 16)),
                         onPressed: () {
                           Navigator.pop(context, _dateTime);
                         }))

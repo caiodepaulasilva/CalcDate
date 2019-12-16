@@ -1,26 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:dateCalculator/pages/homepage.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:dateCalculator/localization/demolocalizationsdelegate.dart';
 
 void main() => runApp(CalcDate());
 
 class CalcDate extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'dateCalculator',
+    return new MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // List all of the app's supported locales here
-      supportedLocales: [
-        Locale('pt', 'BR'),
-        Locale('en', 'US'),
-        
+      supportedLocales: [const Locale('pt', 'BR'), const Locale('en', 'US')],
+      localizationsDelegates: [
+        const DemoLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
       ],
-      home: HomePage(),
+      localeResolutionCallback:
+          (Locale locale, Iterable<Locale> supportedLocales) {
+        for (Locale supportedLocale in supportedLocales) {
+          if (supportedLocale.languageCode == locale.languageCode ||
+              supportedLocale.countryCode == locale.countryCode) {
+            return supportedLocale;
+          }
+        }
+
+        return supportedLocales.first;
+      },
+      title: 'CalcDate',
+      home: new HomePage(),
     );
   }
 }

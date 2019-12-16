@@ -1,6 +1,7 @@
-import 'package:dateCalculator/components/help.dart';
-import 'package:dateCalculator/components/inputDate.dart';
+import 'package:dateCalculator/pages/components/menu.dart';
+import 'package:dateCalculator/pages/components/inputDate.dart';
 import 'package:flutter/material.dart';
+import 'package:dateCalculator/localization/demolocalizations.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -10,7 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +39,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                     padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
                     child: Text(
-
-                     ("Define o período:"),
+                        DemoLocalizations.of(context).trans('Text - HomePage'),
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             fontSize: 20.0,

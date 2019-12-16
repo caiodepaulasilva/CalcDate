@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/menus/choiceMenu.dart';
+import 'package:dateCalculator/pages/menus/choiceMenu.dart';
 import 'package:flutter/services.dart';
-import 'package:dateCalculator/components/calculate.dart';
+import 'package:dateCalculator/pages/components/calculate.dart';
+import 'package:dateCalculator/localization/demolocalizations.dart';
 
 class InputDate extends StatefulWidget {
   InputDate({Key key});
@@ -86,7 +87,8 @@ class _InputDateState extends State<InputDate> {
                   border: const OutlineInputBorder(
                       borderSide:
                           const BorderSide(color: Colors.white, width: 0.0)),
-                  labelText: ("Primeira Data"),
+                  labelText: DemoLocalizations.of(context)
+                      .trans("EntryDate 1 - HomePage"),
                 ),
                 textAlign: TextAlign.start,
               ),
@@ -158,7 +160,8 @@ class _InputDateState extends State<InputDate> {
                   border: const OutlineInputBorder(
                       borderSide:
                           const BorderSide(color: Colors.white, width: 0.0)),
-                  labelText: ("Segunda Data"),
+                  labelText: DemoLocalizations.of(context)
+                      .trans("EntryDate 2 - HomePage"),
                 ),
                 textAlign: TextAlign.start,
               ),

@@ -1,57 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/components/help.dart';
-// import 'package:dateCalculator/custom_text_field.dart';
+import 'package:dateCalculator/pages/components/menu.dart';
+import 'package:dateCalculator/localization/demolocalizations.dart';
 
 class ResultPage extends StatefulWidget {
   final results;
   ResultPage({Key key, List<int> results}) : this.results = results;
 
-    @override
+  @override
   State<StatefulWidget> createState() => _ResultPageState(results: results);
-
 }
-  class _ResultPageState extends State<ResultPage> {
-    final List<int> results;
-    
- _ResultPageState({this.results});
+
+class _ResultPageState extends State<ResultPage> {
+  final List<int> results;
+
+  _ResultPageState({this.results});
 
   @override
   Widget build(BuildContext context) {
-
     String resultado(List<int> results) {
-      var ano;
-      var mes;
-      var dia;
-      var auxMes = " ${(  "e")} ";
-      var auxDia = " ${(  "e")} ";
+      var year;
+      var motnh;
+      var day;
+      var auxMonth =
+          " ${DemoLocalizations.of(context).trans("Date CaractererAux - ResultPage")} ";
+      var auxDay =
+          " ${DemoLocalizations.of(context).trans("Date CaractererAux - ResultPage")} ";
 
       if (results[3] == 1) {
-        ano = "${results[3]}" + " " +(  "ano");
+        year = "${results[3]}" +
+            " " +
+            DemoLocalizations.of(context).trans("Year Singular - ResultPage");
       } else if (results[3] > 1) {
-        ano = "${results[3]}" + " " +(  "anos");
+        year = "${results[3]}" +
+            " " +
+            DemoLocalizations.of(context).trans("Year Plural - ResultPage");
       } else if (results[3] == 0) {
-        auxMes = "";
-        ano = "";
+        auxMonth = "";
+        year = "";
       }
 
       if (results[4] == 1) {
-        mes = "$auxMes" + "${results[4]}" + " " +(  "mês");
+        motnh = "$auxMonth" +
+            "${results[4]}" +
+            " " +
+            DemoLocalizations.of(context).trans("Month Singular - ResultPage");
       } else if (results[4] > 1) {
-        mes = "$auxMes" + "${results[4]}" + " " +(  "meses");
+        motnh = "$auxMonth" +
+            "${results[4]}" +
+            " " +
+            DemoLocalizations.of(context).trans("Month Plural - ResultPage");
       } else if (results[4] == 0) {
-        auxDia = "";
-        mes = "";
+        auxDay = "";
+        motnh = "";
       }
 
       if (results[5] == 1) {
-        dia = "$auxDia" + "${results[5]}" + " " +(  "dia");
+        day = "$auxDay" +
+            "${results[5]}" +
+            " " +
+            DemoLocalizations.of(context).trans("Day Singular - ResultPage");
       } else if (results[5] > 1) {
-        dia = "$auxDia" + "${results[5]}" + " " +(  "dias");
+        day = "$auxDay" +
+            "${results[5]}" +
+            " " +
+            DemoLocalizations.of(context).trans("Day Plural - ResultPage");
       } else if (results[5] == 0) {
-        dia = "";
+        day = "";
       }
 
-      return "$ano" + "$mes" + "$dia";
+      return "$year" + "$motnh" + "$day";
     }
 
     return Scaffold(
@@ -90,7 +107,7 @@ class ResultPage extends StatefulWidget {
               Padding(
                   padding: EdgeInsets.only(left: 25.0),
                   child: Text(
-                    ("Resultado:"),
+                      DemoLocalizations.of(context).trans("Text - ResultPage"),
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           fontSize: 22.0,
@@ -110,7 +127,8 @@ class ResultPage extends StatefulWidget {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                               ("Anos"),
+                                DemoLocalizations.of(context)
+                                    .trans("Year Title - ResultPage"),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.white,
@@ -135,7 +153,8 @@ class ResultPage extends StatefulWidget {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                               ("Meses"),
+                                DemoLocalizations.of(context)
+                                    .trans("Month Title - ResultPage"),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.white,
@@ -160,7 +179,7 @@ class ResultPage extends StatefulWidget {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                               ("Dias"),
+                                       DemoLocalizations.of(context).trans("Day Title - ResultPage"),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.white,

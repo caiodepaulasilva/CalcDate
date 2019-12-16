@@ -13,8 +13,8 @@ class IdiomMenu extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-                child: Text(
-                ("CONFIGURAR O IDIOMA:"),
+              padding: EdgeInsets.only(bottom: 5),
+                child: Text(("CONFIGURAR O IDIOMA:"),
                     style: TextStyle(
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
@@ -25,7 +25,10 @@ class IdiomMenu extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    child: RaisedButton(
+                    width: 102,
+                    height: 40,
+                    child: FlatButton(
+                        color: Colors.grey[300],
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5.0)),
                         disabledColor: Colors.yellowAccent[400],
@@ -33,18 +36,16 @@ class IdiomMenu extends StatelessWidget {
                         focusColor: Colors.yellowAccent[400],
                         highlightColor: Colors.yellowAccent[400],
                         disabledTextColor: Colors.black,
-                        disabledElevation: 5,
-                        child: Text(
-                         ("Inglês"),
-                            style: TextStyle(fontSize: 14.5)),
-                        onPressed: () {
-                      
-                        }),
-                    alignment: Alignment.bottomLeft,
+                        child:
+                            Text(("Inglês"), style: TextStyle(fontSize: 14.5)),
+                        onPressed: () {}),
                   ),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 5)),
                   Container(
-                    child: RaisedButton(
+                    width: 102,
+                    height: 40,
+                    child: FlatButton(
+                        color: Colors.grey[300],
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5.0)),
                         disabledColor: Colors.yellowAccent[400],
@@ -52,16 +53,11 @@ class IdiomMenu extends StatelessWidget {
                         focusColor: Colors.yellowAccent[400],
                         highlightColor: Colors.yellowAccent[400],
                         disabledTextColor: Colors.black,
-                        disabledElevation: 5,
-                        child: Text(
-                         ("Português"),
+                        child: Text(("Português"),
                             style: TextStyle(fontSize: 14.5)),
                         onPressed: () {
-                       
-             
                           //  GlobalMaterialLocalizations.delegate,
                         }),
-                    alignment: Alignment.bottomLeft,
                   ),
                 ]),
           ],

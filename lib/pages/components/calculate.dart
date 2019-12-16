@@ -1,5 +1,6 @@
 import 'package:dateCalculator/pages/resultpage.dart';
 import 'package:flutter/material.dart';
+import 'package:dateCalculator/localization/demolocalizations.dart';
 
 class Calculate extends StatelessWidget {
   final DateTime firstDate;
@@ -148,7 +149,8 @@ class Calculate extends StatelessWidget {
                           builder: (contexto) =>
                               ResultPage(results: calcular())));
                 },
-                child: Text(("Calcular"),
+                child: Text(
+                    DemoLocalizations.of(context).trans('Button - HomePage'),
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         fontSize: 20.0,

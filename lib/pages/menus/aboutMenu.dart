@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:dateCalculator/localization/demolocalizations.dart';
 
 class AboutMenu extends StatelessWidget {
   @override
@@ -12,8 +12,7 @@ class AboutMenu extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-              child: Text(
-                 ("SOBRE:"),
+              child: Text(DemoLocalizations.of(context).trans("Text - TitleAbout"),
                   style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -23,11 +22,8 @@ class AboutMenu extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Padding(
                   child: Text(
-                    ("Nesta aplicação, queremos oferecer todos os recursos para que você possa manipular e calcular datas. Aprecie!\nE obrigado!"),
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.0
-                      )),
+                      DemoLocalizations.of(context).trans("Text - DialogAbout"),
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   padding: EdgeInsets.only(top: 20))),
           Padding(padding: EdgeInsets.only(bottom: 1)),
           Row(
@@ -45,8 +41,7 @@ class AboutMenu extends StatelessWidget {
                             iconSize: 20,
                             // Use the FontAwesomeIcons class for the IconData
                             icon: new Icon(FontAwesomeIcons.coffee),
-                            onPressed: () {
-                            }))),
+                            onPressed: () {}))),
                 Container(
                     alignment: Alignment.bottomLeft,
                     child: InkWell(
@@ -58,8 +53,7 @@ class AboutMenu extends StatelessWidget {
                       iconSize: 20,
                       // Use the FontAwesomeIcons class for the IconData
                       icon: new Icon(FontAwesomeIcons.instagram),
-                      onPressed: () {
-                      },
+                      onPressed: () {},
                     ))),
                 Container(
                     alignment: Alignment.bottomRight,
@@ -72,8 +66,7 @@ class AboutMenu extends StatelessWidget {
                             iconSize: 20,
                             // Use the FontAwesomeIcons class for the IconData
                             icon: new Icon(FontAwesomeIcons.github),
-                            onPressed: () {
-                            }))),
+                            onPressed: () {}))),
               ]),
         ],
       ),
