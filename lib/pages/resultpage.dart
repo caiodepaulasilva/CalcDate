@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:dateCalculator/components/help.dart';
 // import 'package:dateCalculator/custom_text_field.dart';
 
-class ResultPage extends StatelessWidget {
+class ResultPage extends StatefulWidget {
   final results;
   ResultPage({Key key, List<int> results}) : this.results = results;
+
+    @override
+  State<StatefulWidget> createState() => _ResultPageState(results: results);
+
+}
+  class _ResultPageState extends State<ResultPage> {
+    final List<int> results;
+    
+ _ResultPageState({this.results});
 
   @override
   Widget build(BuildContext context) {

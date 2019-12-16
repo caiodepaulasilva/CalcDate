@@ -20,7 +20,7 @@ class CalcDate extends StatelessWidget {
         Locale('en', 'US'),
         
       ],
-      home: MyHomePage(),
+      home: HomePage(),
     );
   }
 }

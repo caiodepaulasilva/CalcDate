@@ -17,6 +17,8 @@ class _InputDateState extends State<InputDate> {
   Object choiceMenu;
   int precision1;
   int precision2;
+  final inputDate1 = TextEditingController();
+  final inputDate2 = TextEditingController();
 
   void initState() {
     super.initState();
@@ -28,26 +30,21 @@ class _InputDateState extends State<InputDate> {
 
   @override
   Widget build(BuildContext context) {
-    final inputDate1 = TextEditingController();
-    final inputDate2 = TextEditingController();
+    String textController(DateTime date, int precision) {
+      setState(() {
+        date = date;
+      });
 
-    void textController(DateTime date, int precision, int position) {
-      String formatoEntrada(int precision) {
-        if (precision == 1) {
-          return '${date.year}';
-        }
-        if (precision == 2) {
-          return '${date.month.toString().padLeft(2, '0')}-${date.year}';
-        }
-        if (precision == 3) {
-          return '${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}';
-        } else
-          return 'Invalid Format';
+      if (precision == 1) {
+        return '${date.year}';
       }
-
-      if (position == 1)
-        inputDate1.text = formatoEntrada(precision);
-      else if (position == 2) inputDate2.text = formatoEntrada(precision);
+      if (precision == 2) {
+        return '${date.month.toString().padLeft(2, '0')}-${date.year}';
+      }
+      if (precision == 3) {
+        return '${date.day.toString().padLeft(2, '0')}-${date.month.toString().padLeft(2, '0')}-${date.year}';
+      } else
+        return 'Invalid Format';
     }
 
     return Column(
@@ -115,7 +112,7 @@ class _InputDateState extends State<InputDate> {
                       date1 = Map.castFrom(choiceMenu)['date'];
                       precision1 = Map.castFrom(choiceMenu)['precision'];
 
-                      textController(date1, precision1, 1);
+                      inputDate1.text = textController(date1, precision1);
                     }
                   }),
             ),
@@ -182,12 +179,12 @@ class _InputDateState extends State<InputDate> {
                         context: context,
                         builder: (context) => ChoiceMenu(position: 1));
 
-                     if (choiceMenu != null &&
+                    if (choiceMenu != null &&
                         Map.castFrom(choiceMenu)['date'] != null) {
                       date2 = Map.castFrom(choiceMenu)['date'];
                       precision2 = Map.castFrom(choiceMenu)['precision'];
 
-                      textController(date2, precision2, 1);
+                      inputDate2.text = textController(date2, precision2);
                     }
                   }),
             ),

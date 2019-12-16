@@ -23,7 +23,7 @@ class AboutMenu extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Padding(
                   child: Text(
-                    ("Desejamos oferecer todos os recursos imagináveis para que você possa manipular e calcular datas. Faça bom uso e obrigado!"),
+                    ("Nesta aplicação, queremos oferecer todos os recursos para que você possa manipular e calcular datas. Aprecie!\nE obrigado!"),
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 16.0
