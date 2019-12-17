@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dateCalculator/pages/homepage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:dateCalculator/localization/demolocalizationsdelegate.dart';
+import 'package:dateCalculator/localization/localizationsdelegate.dart';
 
 void main() => runApp(CalcDate());
 
@@ -12,7 +12,7 @@ class CalcDate extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       supportedLocales: [const Locale('pt', 'BR'), const Locale('en', 'US')],
       localizationsDelegates: [
-        const DemoLocalizationsDelegate(),
+        const MyLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],

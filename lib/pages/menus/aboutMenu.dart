@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:dateCalculator/localization/demolocalizations.dart';
+import 'package:dateCalculator/localization/localizations.dart';
 
 class AboutMenu extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class AboutMenu extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-              child: Text(DemoLocalizations.of(context).trans("Text - TitleAbout"),
+              child: Text(MyLocalizations.of(context).trans("Text - TitleAbout"),
                   style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -22,7 +22,7 @@ class AboutMenu extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Padding(
                   child: Text(
-                      DemoLocalizations.of(context).trans("Text - DialogAbout"),
+                      MyLocalizations.of(context).trans("Text - DialogAbout"),
                       style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   padding: EdgeInsets.only(top: 20))),
           Padding(padding: EdgeInsets.only(bottom: 1)),

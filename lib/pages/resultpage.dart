@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dateCalculator/pages/components/menu.dart';
-import 'package:dateCalculator/localization/demolocalizations.dart';
+import 'package:dateCalculator/localization/localizations.dart';
 
 class ResultPage extends StatefulWidget {
   final results;
@@ -21,21 +21,28 @@ class _ResultPageState extends State<ResultPage> {
       var year;
       var motnh;
       var day;
-      var auxMonth =
-          " ${DemoLocalizations.of(context).trans("Date CaractererAux - ResultPage")} ";
-      var auxDay =
-          " ${DemoLocalizations.of(context).trans("Date CaractererAux - ResultPage")} ";
+      var auxMonth;
+      var auxDay;
 
       if (results[3] == 1) {
         year = "${results[3]}" +
             " " +
-            DemoLocalizations.of(context).trans("Year Singular - ResultPage");
+            MyLocalizations.of(context).trans("Year Singular - ResultPage");
+        auxMonth =
+            " ${MyLocalizations.of(context).trans("Date Aux - ResultPage")} ";
+        auxDay =
+            " ${MyLocalizations.of(context).trans("Date Aux - ResultPage")} ";
       } else if (results[3] > 1) {
         year = "${results[3]}" +
             " " +
-            DemoLocalizations.of(context).trans("Year Plural - ResultPage");
+            MyLocalizations.of(context).trans("Year Plural - ResultPage");
+        auxMonth =
+            " ${MyLocalizations.of(context).trans("Date Aux - ResultPage")} ";
+        auxDay =
+            " ${MyLocalizations.of(context).trans("Date Aux - ResultPage")} ";
       } else if (results[3] == 0) {
         auxMonth = "";
+        auxDay = "";
         year = "";
       }
 
@@ -43,14 +50,17 @@ class _ResultPageState extends State<ResultPage> {
         motnh = "$auxMonth" +
             "${results[4]}" +
             " " +
-            DemoLocalizations.of(context).trans("Month Singular - ResultPage");
+            MyLocalizations.of(context).trans("Month Singular - ResultPage");
+        auxDay =
+            " ${MyLocalizations.of(context).trans("Date Aux - ResultPage")} ";
       } else if (results[4] > 1) {
         motnh = "$auxMonth" +
             "${results[4]}" +
             " " +
-            DemoLocalizations.of(context).trans("Month Plural - ResultPage");
+            MyLocalizations.of(context).trans("Month Plural - ResultPage");
+        auxDay =
+            " ${MyLocalizations.of(context).trans("Date Aux - ResultPage")} ";
       } else if (results[4] == 0) {
-        auxDay = "";
         motnh = "";
       }
 
@@ -58,13 +68,14 @@ class _ResultPageState extends State<ResultPage> {
         day = "$auxDay" +
             "${results[5]}" +
             " " +
-            DemoLocalizations.of(context).trans("Day Singular - ResultPage");
+            MyLocalizations.of(context).trans("Day Singular - ResultPage");
       } else if (results[5] > 1) {
         day = "$auxDay" +
             "${results[5]}" +
             " " +
-            DemoLocalizations.of(context).trans("Day Plural - ResultPage");
+            MyLocalizations.of(context).trans("Day Plural - ResultPage");
       } else if (results[5] == 0) {
+        auxDay = "";
         day = "";
       }
 
@@ -107,7 +118,7 @@ class _ResultPageState extends State<ResultPage> {
               Padding(
                   padding: EdgeInsets.only(left: 25.0),
                   child: Text(
-                      DemoLocalizations.of(context).trans("Text - ResultPage"),
+                      MyLocalizations.of(context).trans("Text - ResultPage"),
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           fontSize: 22.0,
@@ -127,7 +138,7 @@ class _ResultPageState extends State<ResultPage> {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                                DemoLocalizations.of(context)
+                                MyLocalizations.of(context)
                                     .trans("Year Title - ResultPage"),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
@@ -153,7 +164,7 @@ class _ResultPageState extends State<ResultPage> {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                                DemoLocalizations.of(context)
+                                MyLocalizations.of(context)
                                     .trans("Month Title - ResultPage"),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
@@ -179,7 +190,8 @@ class _ResultPageState extends State<ResultPage> {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                                       DemoLocalizations.of(context).trans("Day Title - ResultPage"),
+                                MyLocalizations.of(context)
+                                    .trans("Day Title - ResultPage"),
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                   color: Colors.white,

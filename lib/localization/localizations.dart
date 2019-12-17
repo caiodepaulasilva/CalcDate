@@ -4,13 +4,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class DemoLocalizations {  
-  DemoLocalizations(this.locale);  
+class MyLocalizations {  
+  MyLocalizations(this.locale);  
   
   final Locale locale;  
   
-  static DemoLocalizations of(BuildContext context) {  
-    return Localizations.of<DemoLocalizations>(context, DemoLocalizations);  
+  static MyLocalizations of(BuildContext context) {  
+    return Localizations.of<MyLocalizations>(context, MyLocalizations);  
   }  
   
   Map<String, String> _sentences;  

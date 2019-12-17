@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
-import 'package:dateCalculator/localization/demolocalizations.dart';
+import 'package:dateCalculator/localization/localizations.dart';
 
 class DatePickerMenu extends StatefulWidget {
   final precision;
@@ -74,7 +74,7 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
               Padding(
                 padding: EdgeInsets.only(bottom: 5.0),
                 child: Text(
-                    DemoLocalizations.of(context).trans("Text - DialogDate"),
+                    MyLocalizations.of(context).trans("Text - DialogDate"),
                     style: Theme.of(context).textTheme.title),
               ),
               // Container(
@@ -132,7 +132,7 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
                         child: Text(
-                            DemoLocalizations.of(context)
+                            MyLocalizations.of(context)
                                 .trans("Button 1 - DialogDate"),
                             style: TextStyle(fontSize: 16)),
                         onPressed: () {
@@ -151,7 +151,7 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
                         child:
-                            Text( DemoLocalizations.of(context)
+                            Text( MyLocalizations.of(context)
                                 .trans("Button 2 - DialogDate"), style: TextStyle(fontSize: 16)),
                         onPressed: () {
                           Navigator.pop(context, _dateTime);

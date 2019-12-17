@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dateCalculator/pages/menus/calendarMenu.dart';
-import 'package:dateCalculator/localization/demolocalizations.dart';
+import 'package:dateCalculator/localization/localizations.dart';
 
 class ChoiceMenu extends StatefulWidget {
   final position;
@@ -33,7 +33,7 @@ class _ChoiceMenuState extends State<ChoiceMenu> {
 
     return AlertDialog(
         title: Text(
-          DemoLocalizations.of(context).trans("Text - DialogPrecision"),
+          MyLocalizations.of(context).trans("Text - DialogPrecision"),
         ),
         content: new Column(
             mainAxisSize: MainAxisSize.min,
@@ -51,7 +51,7 @@ class _ChoiceMenuState extends State<ChoiceMenu> {
                         highlightColor: Colors.yellowAccent[400],
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
-                        child: Text(DemoLocalizations.of(context).trans("Button 1 - DialogPrecision"),
+                        child: Text(MyLocalizations.of(context).trans("Button 1 - DialogPrecision"),
                             style: TextStyle(fontSize: 13)),
                         onPressed: () {
                           inputData(1);
@@ -75,7 +75,7 @@ class _ChoiceMenuState extends State<ChoiceMenu> {
                       disabledTextColor: Colors.black,
                       disabledElevation: 5,
                       child:
-                          Text(DemoLocalizations.of(context).trans("Button 2 - DialogPrecision"), style: TextStyle(fontSize: 13)),
+                          Text(MyLocalizations.of(context).trans("Button 2 - DialogPrecision"), style: TextStyle(fontSize: 13)),
                       onPressed: () {
                         inputData(2);
                       }),
@@ -98,7 +98,7 @@ class _ChoiceMenuState extends State<ChoiceMenu> {
                         highlightColor: Colors.yellowAccent[400],
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
-                        child: Text(DemoLocalizations.of(context).trans("Button 3 - DialogPrecision"),
+                        child: Text(MyLocalizations.of(context).trans("Button 3 - DialogPrecision"),
                             style: TextStyle(fontSize: 13)),
                         onPressed: () {
                           inputData(3);
