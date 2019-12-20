@@ -26,7 +26,7 @@ No que se refere aos recursos futuros, existem um pequeno planejamento no qual a
 - [ ] Calcular dia da semana
 - [ ] Calcular fuso-horário
 - [ ] Calcular dias decorridos e úteis
-- [ ] Novos idiomas
+- [x] Suporte a idiomas
 - [ ] Histórico
 
 ## Autor

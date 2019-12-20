@@ -22,7 +22,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_cupertino_date_picker: ^1.0.11
-  flutter_masked_text: ^0.7.0
   font_awesome_flutter: "any"
 
   # shared_preferences: ^0.4.0

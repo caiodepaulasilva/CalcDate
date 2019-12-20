@@ -89,73 +89,78 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
               // ),
             ],
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: 5.0),
-            child: DatePickerWidget(
-              minDateTime: DateTime.parse(minDatetime),
-              maxDateTime: DateTime.parse(maxDateTime(position)),
-              initialDateTime: DateTime.parse(initDatetime),
-              onConfirm: (dateTime, selectedIndex) {},
-              dateFormat: choiceFormat(precision),
-              // NÃO ESTÁ RECONHECENDO PT-BR -> ESTÁ COM FUSO +1H
-              locale: DateTimePickerLocale.pt_br,
-              pickerTheme: DateTimePickerTheme(
-                showTitle: false,
-                backgroundColor: Colors.blueGrey[100],
-                cancelTextStyle: TextStyle(color: Colors.black, fontSize: 20),
-                confirmTextStyle: TextStyle(color: Colors.black, fontSize: 20),
-                itemTextStyle: TextStyle(color: Colors.black),
-                pickerHeight: 300.0,
-                titleHeight: 44.0,
-                itemHeight: 30.0,
+          Expanded(
+            child: Container(
+              margin: EdgeInsets.only(bottom: 5.0),
+              child: DatePickerWidget(
+                minDateTime: DateTime.parse(minDatetime),
+                maxDateTime: DateTime.parse(maxDateTime(position)),
+                initialDateTime: DateTime.parse(initDatetime),
+                onConfirm: (dateTime, selectedIndex) {},
+                dateFormat: choiceFormat(precision),
+                // NÃO ESTÁ RECONHECENDO PT-BR -> ESTÁ COM FUSO +1H
+                locale: DateTimePickerLocale.pt_br,
+                pickerTheme: DateTimePickerTheme(
+                  showTitle: false,
+                  backgroundColor: Colors.blueGrey[100],
+                  cancelTextStyle: TextStyle(color: Colors.black, fontSize: 20),
+                  confirmTextStyle:
+                      TextStyle(color: Colors.black, fontSize: 20),
+                  itemTextStyle: TextStyle(color: Colors.black),
+                  pickerHeight: 300.0,
+                  titleHeight: 44.0,
+                  itemHeight: 30.0,
+                ),
+                onChange: (dateTime, selectedIndex) {
+                  setState(() {
+                    _dateTime = dateTime;
+                  });
+                },
               ),
-              onChange: (dateTime, selectedIndex) {
-                setState(() {
-                  _dateTime = dateTime;
-                });
-              },
             ),
           ),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                    width: 130,
-                    // height: 100,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0)),
-                        disabledColor: Colors.yellowAccent[400],
-                        hoverColor: Colors.yellowAccent[400],
-                        focusColor: Colors.yellowAccent[400],
-                        highlightColor: Colors.yellowAccent[400],
-                        disabledTextColor: Colors.black,
-                        disabledElevation: 5,
-                        child: Text(
-                            MyLocalizations.of(context)
-                                .trans("Button 1 - DialogDate"),
-                            style: TextStyle(fontSize: 16)),
-                        onPressed: () {
-                          Navigator.pop(context, null);
-                        })),
-                Container(
-                    width: 130,
-                    // height: 100,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0)),
-                        disabledColor: Colors.yellowAccent[400],
-                        hoverColor: Colors.yellowAccent[400],
-                        focusColor: Colors.yellowAccent[400],
-                        highlightColor: Colors.yellowAccent[400],
-                        disabledTextColor: Colors.black,
-                        disabledElevation: 5,
-                        child:
-                            Text( MyLocalizations.of(context)
-                                .trans("Button 2 - DialogDate"), style: TextStyle(fontSize: 16)),
-                        onPressed: () {
-                          Navigator.pop(context, _dateTime);
-                        }))
+                Expanded(
+                    child: Container(
+                        child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0)),
+                            disabledColor: Colors.yellowAccent[400],
+                            hoverColor: Colors.yellowAccent[400],
+                            focusColor: Colors.yellowAccent[400],
+                            highlightColor: Colors.yellowAccent[400],
+                            disabledTextColor: Colors.black,
+                            disabledElevation: 5,
+                            child: Text(
+                                MyLocalizations.of(context)
+                                    .trans("Button 1 - DialogDate"),
+                                style: TextStyle(fontSize: 16)),
+                            onPressed: () {
+                              Navigator.pop(context, null);
+                            }))),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                ),
+                Expanded(
+                    child: Container(
+                        child: RaisedButton(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0)),
+                            disabledColor: Colors.yellowAccent[400],
+                            hoverColor: Colors.yellowAccent[400],
+                            focusColor: Colors.yellowAccent[400],
+                            highlightColor: Colors.yellowAccent[400],
+                            disabledTextColor: Colors.black,
+                            disabledElevation: 5,
+                            child: Text(
+                                MyLocalizations.of(context)
+                                    .trans("Button 2 - DialogDate"),
+                                style: TextStyle(fontSize: 16)),
+                            onPressed: () {
+                              Navigator.pop(context, _dateTime);
+                            }))),
               ]),
           // selected date
         ],

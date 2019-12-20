@@ -5,11 +5,13 @@ import 'package:dateCalculator/localization/localizations.dart';
 class Calculate extends StatelessWidget {
   final DateTime firstDate;
   final DateTime secondDate;
+  final bool state;
   final List<int> resultados = List<int>();
 
-  Calculate(DateTime firstDate, DateTime secondDate)
+  Calculate(DateTime firstDate, DateTime secondDate, bool state)
       : this.firstDate = firstDate,
-        this.secondDate = secondDate;
+        this.secondDate = secondDate,
+        this.state = state;
 
   @override
   Widget build(BuildContext context) {
@@ -143,11 +145,13 @@ class Calculate extends StatelessWidget {
                 color: Colors.yellowAccent[400],
                 splashColor: Colors.limeAccent[300],
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (contexto) =>
-                              ResultPage(results: calcular())));
+                  if (state) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (contexto) =>
+                                ResultPage(results: calcular())));
+                  } else {}
                 },
                 child: Text(
                     MyLocalizations.of(context).trans('Button - HomePage'),

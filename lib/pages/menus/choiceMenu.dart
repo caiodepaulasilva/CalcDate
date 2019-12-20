@@ -40,7 +40,39 @@ class _ChoiceMenuState extends State<ChoiceMenu> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(mainAxisSize: MainAxisSize.max, children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                      width: 170,
+                      child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0)),
+                          disabledColor: Colors.yellowAccent[400],
+                          hoverColor: Colors.yellowAccent[400],
+                          focusColor: Colors.yellowAccent[400],
+                          highlightColor: Colors.yellowAccent[400],
+                          disabledTextColor: Colors.black,
+                          disabledElevation: 5,
+                          child: Text(
+                              MyLocalizations.of(context)
+                                  .trans("Button 1 - DialogPrecision"),
+                              style: TextStyle(fontSize: 12.25)),
+                          onPressed: () {
+                            inputData(1);
+                          })),
+                ),
+                Padding(padding: EdgeInsets.symmetric(horizontal: 4.0)),
                 Container(
+                    width: 100,
+                    child: Text(
+                      "Ex: 2019",
+                      style: (TextStyle(fontSize: 12)),
+                    ))
+              ]),
+              Row(children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: Container(
                     width: 170,
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
@@ -51,63 +83,52 @@ class _ChoiceMenuState extends State<ChoiceMenu> {
                         highlightColor: Colors.yellowAccent[400],
                         disabledTextColor: Colors.black,
                         disabledElevation: 5,
-                        child: Text(MyLocalizations.of(context).trans("Button 1 - DialogPrecision"),
-                            style: TextStyle(fontSize: 13)),
+                        child: Text(
+                            MyLocalizations.of(context)
+                                .trans("Button 2 - DialogPrecision"),
+                            style: TextStyle(fontSize: 12.25)),
                         onPressed: () {
-                          inputData(1);
-                        })),
-                Padding(padding: EdgeInsets.symmetric(horizontal: 4.0)),
-                Text(
-                  "Ex: 2019",
-                  style: (TextStyle(fontSize: 13)),
-                )
-              ]),
-              Row(children: <Widget>[
-                Container(
-                  width: 170,
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0)),
-                      disabledColor: Colors.yellowAccent[400],
-                      hoverColor: Colors.yellowAccent[400],
-                      focusColor: Colors.yellowAccent[400],
-                      highlightColor: Colors.yellowAccent[400],
-                      disabledTextColor: Colors.black,
-                      disabledElevation: 5,
-                      child:
-                          Text(MyLocalizations.of(context).trans("Button 2 - DialogPrecision"), style: TextStyle(fontSize: 13)),
-                      onPressed: () {
-                        inputData(2);
-                      }),
+                          inputData(2);
+                        }),
+                  ),
                 ),
                 Padding(padding: EdgeInsets.symmetric(horizontal: 4.0)),
-                Text(
-                  "Ex: 12/2019",
-                  style: (TextStyle(fontSize: 13)),
-                ),
+                Container(
+                    width: 100,
+                    child: Text(
+                      "Ex: 12/2019",
+                      style: (TextStyle(fontSize: 12)),
+                    )),
               ]),
               Row(children: <Widget>[
-                Container(
-                    width: 170,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0)),
-                        disabledColor: Colors.yellowAccent[400],
-                        hoverColor: Colors.yellowAccent[400],
-                        focusColor: Colors.yellowAccent[400],
-                        highlightColor: Colors.yellowAccent[400],
-                        disabledTextColor: Colors.black,
-                        disabledElevation: 5,
-                        child: Text(MyLocalizations.of(context).trans("Button 3 - DialogPrecision"),
-                            style: TextStyle(fontSize: 13)),
-                        onPressed: () {
-                          inputData(3);
-                        })),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                      width: 170,
+                      child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0)),
+                          disabledColor: Colors.yellowAccent[400],
+                          hoverColor: Colors.yellowAccent[400],
+                          focusColor: Colors.yellowAccent[400],
+                          highlightColor: Colors.yellowAccent[400],
+                          disabledTextColor: Colors.black,
+                          disabledElevation: 5,
+                          child: Text(
+                              MyLocalizations.of(context)
+                                  .trans("Button 3 - DialogPrecision"),
+                              style: TextStyle(fontSize: 12.25)),
+                          onPressed: () {
+                            inputData(3);
+                          })),
+                ),
                 Padding(padding: EdgeInsets.symmetric(horizontal: 4.0)),
-                Text(
-                  "Ex: 10/12/2019",
-                  style: (TextStyle(fontSize: 13)),
-                )
+                Container(
+                    width: 100,
+                    child: Text(
+                      "Ex: 10/12/2019",
+                      style: (TextStyle(fontSize: 12)),
+                    ))
               ])
             ]));
   }
