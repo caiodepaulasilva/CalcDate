@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/pages/components/menu.dart';
-import 'package:dateCalculator/localization/localizations.dart';
+import 'package:CalcDate/pages/components/menu.dart';
+import 'package:CalcDate/localization/localizations.dart';
 
 class ResultPage extends StatefulWidget {
   final results;

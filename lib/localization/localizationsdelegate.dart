@@ -1,6 +1,6 @@
 import 'dart:async';  
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/localization/localizations.dart';
+import 'package:CalcDate/localization/localizations.dart';
 
 class MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {  
   const MyLocalizationsDelegate();  

@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/pages/menus/choiceMenu.dart';
+import 'package:CalcDate/pages/menus/choiceMenu.dart';
 import 'package:flutter/services.dart';
-import 'package:dateCalculator/pages/components/calculate.dart';
-import 'package:dateCalculator/localization/localizations.dart';
+import 'package:CalcDate/pages/components/calculate.dart';
+import 'package:CalcDate/localization/localizations.dart';
 
 class InputDate extends StatefulWidget {
   InputDate({Key key});
@@ -66,13 +66,9 @@ class _InputDateState extends State<InputDate> {
                   child: TextField(
                     autofocus: false,
                     readOnly: true,
-                    textInputAction: TextInputAction.done,
-                    scrollPadding: EdgeInsets.all(110),
-                    keyboardAppearance: Brightness.dark,
                     cursorWidth: 2,
                     style: TextStyle(color: Colors.white, fontSize: 18.0),
                     maxLines: 1,
-                    keyboardType: TextInputType.number,
                     controller: inputDate1,
                     cursorColor: Colors.white,
                     decoration: InputDecoration(
@@ -156,14 +152,9 @@ class _InputDateState extends State<InputDate> {
                     readOnly: true,
                     autofocus: false,
                     textInputAction: TextInputAction.done,
-                    scrollPadding: EdgeInsets.all(110),
-                    cursorColor: Colors.white,
-                    keyboardAppearance: Brightness.dark,
-                    obscureText: false,
                     cursorWidth: 2,
                     maxLines: 1,
                     style: TextStyle(color: Colors.white, fontSize: 18.0),
-                    keyboardType: TextInputType.number,
                     controller: inputDate2,
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
@@ -233,7 +224,7 @@ class _InputDateState extends State<InputDate> {
         Padding(
           padding: EdgeInsets.only(top: 25),
         ),
-        Calculate(date1, date2,calculateEnabled),
+        Calculate(date1, date2, calculateEnabled),
         Padding(
           padding: EdgeInsets.only(bottom: 25),
         ),

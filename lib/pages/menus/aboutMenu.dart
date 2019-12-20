@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:dateCalculator/localization/localizations.dart';
+import 'package:CalcDate/localization/localizations.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutMenu extends StatelessWidget {
   @override
@@ -12,7 +13,8 @@ class AboutMenu extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-              child: Text(MyLocalizations.of(context).trans("Text - TitleAbout"),
+              child: Text(
+                  MyLocalizations.of(context).trans("Text - TitleAbout"),
                   style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -41,20 +43,8 @@ class AboutMenu extends StatelessWidget {
                             iconSize: 20,
                             // Use the FontAwesomeIcons class for the IconData
                             icon: new Icon(FontAwesomeIcons.coffee),
-                            onPressed: () {}))),
-                Container(
-                    alignment: Alignment.bottomLeft,
-                    child: InkWell(
-                        child: IconButton(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      alignment: Alignment.bottomRight,
-                      padding: EdgeInsets.symmetric(horizontal: 8),
-                      iconSize: 20,
-                      // Use the FontAwesomeIcons class for the IconData
-                      icon: new Icon(FontAwesomeIcons.instagram),
-                      onPressed: () {},
-                    ))),
+                            onPressed: _launchCoffee))),
+              
                 Container(
                     alignment: Alignment.bottomRight,
                     child: InkWell(
@@ -66,10 +56,27 @@ class AboutMenu extends StatelessWidget {
                             iconSize: 20,
                             // Use the FontAwesomeIcons class for the IconData
                             icon: new Icon(FontAwesomeIcons.github),
-                            onPressed: () {}))),
+                            onPressed: _launchGithub))),
               ]),
         ],
       ),
     );
+  }
+
+  _launchCoffee() async {
+    const url = 'https://www.buymeacoffee.com/caiosilva';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+   _launchGithub() async {
+    const url = 'https://github.com/caiodepaulasilva';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

@@ -1,7 +1,7 @@
-import 'package:dateCalculator/pages/components/menu.dart';
-import 'package:dateCalculator/pages/components/inputDate.dart';
+import 'package:CalcDate/pages/components/menu.dart';
+import 'package:CalcDate/pages/components/inputDate.dart';
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/localization/localizations.dart';
+import 'package:CalcDate/localization/localizations.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -14,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
       resizeToAvoidBottomPadding: false,
       body: Center(
         child: Stack(children: <Widget>[

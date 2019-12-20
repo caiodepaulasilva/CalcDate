@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
-import 'package:dateCalculator/localization/localizations.dart';
+import 'package:CalcDate/localization/localizations.dart';
 
 class DatePickerMenu extends StatefulWidget {
   final precision;
@@ -77,16 +77,6 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                     MyLocalizations.of(context).trans("Text - DialogDate"),
                     style: Theme.of(context).textTheme.title),
               ),
-              // Container(
-              //   padding: EdgeInsets.only(left: 2.0),
-              //   child: Text(
-              //     _dateTime != null
-              //         ? choiceString(precision)
-              //         // ? '${_dateTime.year}-${_dateTime.month.toString().padLeft(2, '0')}-${_dateTime.day.toString().padLeft(2, '0')}-$precision'
-              //         : '',
-              // style: Theme.of(context).textTheme.title,
-              // ),
-              // ),
             ],
           ),
           Expanded(
@@ -98,7 +88,6 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                 initialDateTime: DateTime.parse(initDatetime),
                 onConfirm: (dateTime, selectedIndex) {},
                 dateFormat: choiceFormat(precision),
-                // NÃO ESTÁ RECONHECENDO PT-BR -> ESTÁ COM FUSO +1H
                 locale: DateTimePickerLocale.pt_br,
                 pickerTheme: DateTimePickerTheme(
                   showTitle: false,
@@ -162,7 +151,6 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
                               Navigator.pop(context, _dateTime);
                             }))),
               ]),
-          // selected date
         ],
       ),
     ));

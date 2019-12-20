@@ -1,4 +1,4 @@
-package com.example.dateCalculator;
+package com.example.CalcDate;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

@@ -6,12 +6,12 @@ Um **objeto de cálculo** desenvolvido para os entusiastas de equações que env
 <img src="https://user-images.githubusercontent.com/36136627/70867341-316a0600-1f53-11ea-919a-d2a6020ce958.png" width="240" height="430">
 
 # Novos recursos
-Para implementar novos recursos de cálculo, sugere-se respeitar a estrutura atual do código, de forma que cada nova _feature_ deve ser inserida como uma nova funcionalidade da calculadora. Ou seja:
+Para implementar novos recursos de cálculo, sugere-se respeitar a estrutura atual do código, de forma que cada nova _feature_ deve ser inserida como uma nova funcionalidade da calculadora, isto é, através de uma nova página:
 
   ```dart
 //INSERIR ESCOPO DE CÓDIGO AQUI
 ```
-Fazendo assim com que todo nova feature, seja um objeto dependente da   `class Calculadora`, sustentando a abstração.
+Fazendo assim com que todo nova feature, seja um objeto dependente da `class Calculadora`, sustentando a abstração.
 
 # Recursos Futuros
 No que se refere aos recursos futuros, existem um pequeno planejamento no qual algumas funcionalidades já se encontram em desenvolvimento e devem ser implementadas em nova atualização. Veja:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:dateCalculator/pages/homepage.dart';
+import 'package:CalcDate/pages/homepage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:dateCalculator/localization/localizationsdelegate.dart';
+import 'package:CalcDate/localization/localizationsdelegate.dart';
 
 void main() => runApp(CalcDate());
 
