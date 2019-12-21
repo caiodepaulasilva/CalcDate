@@ -1,4 +1,4 @@
-import 'package:CalcDate/pages/components/menu.dart';
+import 'package:CalcDate/pages/menus/aboutMenu.dart';
 import 'package:CalcDate/pages/components/inputDate.dart';
 import 'package:flutter/material.dart';
 import 'package:CalcDate/localization/localizations.dart';
@@ -14,12 +14,30 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: new Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(
+                padding: EdgeInsets.only(left: 5),
+                alignment: Alignment.bottomCenter,
+                child: FlatButton(
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                  onPressed: () {
+                    _settingModalBottomSheet(context);
+                  },
+                )),
+          ]),
       resizeToAvoidBottomPadding: false,
       body: Center(
         child: Stack(children: <Widget>[
           Container(
             color: Colors.black,
-            child: HelpMenu(),
           ),
           SingleChildScrollView(
               child: Column(
@@ -49,5 +67,87 @@ class _HomePageState extends State<HomePage> {
         ]),
       ),
     );
+  }
+
+  void _settingModalBottomSheet(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return Container(
+            height: 340,
+            color: Colors.yellowAccent[400],
+            // foregroundDecoration: BoxDecoration(color: Colors.yellowAccent[400]),
+            child: new ListView(
+              children: <Widget>[
+                new ListTile(
+                    leading: new Icon(
+                      Icons.date_range,
+                      color: Colors.black,
+                    ),
+                    title: new Text(
+                      'Date',
+                      style: TextStyle(color: Colors.black, fontSize: 15),
+                    ),
+                    subtitle: Text(
+                      'calculate in days, months and years',
+                    ),
+                    trailing: DecoratedBox(
+                        child: Icon(Icons.check), decoration: BoxDecoration()),
+                    onTap: () => {}),
+                new ListTile(
+                  leading: new Icon(Icons.access_time, color: Colors.black45),
+                  title: new Text(
+                    'Time',
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                  subtitle: Text(
+                    'calculate in hours, minutes and seconds',
+                  ),
+                  trailing:
+                      DecoratedBox(child: null, decoration: BoxDecoration()),
+                  onTap: () => {},
+                ),
+                new ListTile(
+                  leading: new Icon(Icons.event_busy),
+                  title: new Text(
+                    'Work days',
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                  subtitle: Text(
+                    'calculate any work days',
+                  ),
+                  trailing:
+                      DecoratedBox(child: null, decoration: BoxDecoration()),
+                  onTap: () => {},
+                ),
+                new ListTile(
+                  leading: new Icon(Icons.filter_7),
+                  title: new Text(
+                    'Weeks',
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                  subtitle: Text(
+                    'calculate based in a day of week',
+                  ),
+                  trailing:
+                      DecoratedBox(child: null, decoration: BoxDecoration()),
+                  onTap: () => {},
+                ),
+                new ListTile(
+                  leading: new Icon(Icons.help_outline),
+                  title: new Text(
+                    'About application',
+                    style: TextStyle(color: Colors.black, fontSize: 15),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    showDialog(
+                        context: context, builder: (context) => AboutMenu());
+                  },
+                ),
+              ],
+            ),
+          );
+        });
   }
 }

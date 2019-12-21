@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:CalcDate/localization/localizations.dart';
-// import 'package:flutter_web_browser/flutter_web_browser.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class AboutMenu extends StatelessWidget {
   @override
@@ -54,25 +54,31 @@ class AboutMenu extends StatelessWidget {
                             alignment: Alignment.bottomRight,
                             padding: EdgeInsets.symmetric(horizontal: 10),
                             iconSize: 20,
-                            // Use the FontAwesomeIcons class for the IconData
+      
                             icon: new Icon(FontAwesomeIcons.github),
                             // onPressed: _launchGithub
                             ))),
-              ]),
+              // ]),
         ],
       ),
-    );
+        ]));
   }
 
   // _launchCoffee() async {
-  //   FlutterWebBrowser.openWebPage(
-  //       url: "https://www.buymeacoffee.com/caiosilva",
-  //       androidToolbarColor: Colors.deepPurple);
+  //   const url = "https://www.buymeacoffee.com/caiosilva";
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
   // }
 
   // _launchGithub() async {
-  //   FlutterWebBrowser.openWebPage(
-  //       url: "https://github.com/caiodepaulasilva",
-  //       androidToolbarColor: Colors.deepPurple);
+  //   const url = "https://github.com/caiodepaulasilva";
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
   // }
 }
