@@ -85,11 +85,11 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black,
                     ),
                     title: new Text(
-                      'Date',
+                       MyLocalizations.of(context).trans('Menu Title - Date'),
                       style: TextStyle(color: Colors.black, fontSize: 15),
                     ),
                     subtitle: Text(
-                      'calculate in days, months and years',
+                      MyLocalizations.of(context).trans('Menu Subtitle - Date'),
                     ),
                     trailing: DecoratedBox(
                         child: Icon(Icons.check), decoration: BoxDecoration()),
@@ -97,11 +97,11 @@ class _HomePageState extends State<HomePage> {
                 new ListTile(
                   leading: new Icon(Icons.access_time, color: Colors.black45),
                   title: new Text(
-                    'Time',
+                         MyLocalizations.of(context).trans('Menu Title - Time'),
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   subtitle: Text(
-                    'calculate in hours, minutes and seconds',
+                      MyLocalizations.of(context).trans('Menu Subtitle - Time'),
                   ),
                   trailing:
                       DecoratedBox(child: null, decoration: BoxDecoration()),
@@ -110,11 +110,11 @@ class _HomePageState extends State<HomePage> {
                 new ListTile(
                   leading: new Icon(Icons.event_busy),
                   title: new Text(
-                    'Work days',
+                      MyLocalizations.of(context).trans('Menu Title - Work day'),
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   subtitle: Text(
-                    'calculate any work days',
+                        MyLocalizations.of(context).trans('Menu Subtitle - Work day'),
                   ),
                   trailing:
                       DecoratedBox(child: null, decoration: BoxDecoration()),
@@ -123,11 +123,11 @@ class _HomePageState extends State<HomePage> {
                 new ListTile(
                   leading: new Icon(Icons.filter_7),
                   title: new Text(
-                    'Weeks',
+                         MyLocalizations.of(context).trans('Menu Title - Week day'),
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   subtitle: Text(
-                    'calculate based in a day of week',
+                      MyLocalizations.of(context).trans('Menu Subtitle - Week day'),
                   ),
                   trailing:
                       DecoratedBox(child: null, decoration: BoxDecoration()),
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                 new ListTile(
                   leading: new Icon(Icons.help_outline),
                   title: new Text(
-                    'About application',
+                         MyLocalizations.of(context).trans('Menu Title - About'),
                     style: TextStyle(color: Colors.black, fontSize: 15),
                   ),
                   onTap: () {
