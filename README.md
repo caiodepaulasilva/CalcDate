@@ -38,7 +38,7 @@ No que se refere aos recursos futuros, existem um pequeno planejamento no qual a
 ## Autor
 <img src= "https://avatars3.githubusercontent.com/u/36136627?s=400&v=4" width="170" height="170">
 
-**Github:** [@caiodepaulasilva](https://github.com/caiodepaulasilva) <br>
+**Linkedin:** [@caiodepaulasilva](https://www.linkedin.com/in/caiodepaulasilva/) <br>
 **Medium:** [@caiodepaulasilva](https://medium.com/@caiodepaulasilva)
 
 ### Contribua:
@@ -46,3 +46,11 @@ No que se refere aos recursos futuros, existem um pequeno planejamento no qual a
 0.  Dê a esse projeto uma  ⭐️
 1.  Crie uma _issue_ e descreva suas ideias
 2. [Fork it](https://github.com/caiodepaulasilva/calcDate/fork)
+
+
+
+## Informações de Licença
+
+[![licensebuttons by-nc-sa](https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/4.0)
+
+O CalcDate sob autoria de Caio Silva está licenciado sob uma Licença Internacional [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/). Para situações extraordinárias e permissões além do escopo desta licença, entrar em contato através de perfil [LinkedIn](https://www.linkedin.com/in/caiodepaulasilva/) do autor.
