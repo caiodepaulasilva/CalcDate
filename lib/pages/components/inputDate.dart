@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:CalcDate/pages/menus/choiceMenu.dart';
+import 'package:CalcDate/pages/components/choiceMenu.dart';
 import 'package:flutter/services.dart';
 import 'package:CalcDate/pages/components/calculate.dart';
 import 'package:CalcDate/localization/localizations.dart';

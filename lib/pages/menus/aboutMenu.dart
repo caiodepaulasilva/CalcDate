@@ -43,7 +43,8 @@ class AboutMenu extends StatelessWidget {
                             iconSize: 20,
                             // Use the FontAwesomeIcons class for the IconData
                             icon: new Icon(FontAwesomeIcons.coffee),
-                            // onPressed: _launchCoffee
+                            onPressed: (){}
+                            //  _launchCoffee
                             ))),
                 Container(
                     alignment: Alignment.bottomRight,
@@ -56,7 +57,8 @@ class AboutMenu extends StatelessWidget {
                             iconSize: 20,
       
                             icon: new Icon(FontAwesomeIcons.github),
-                            // onPressed: _launchGithub
+                            onPressed:(){} 
+                            // _launchGithub
                             ))),
               // ]),
         ],

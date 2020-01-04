@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:CalcDate/pages/components/menu.dart';
 import 'package:CalcDate/localization/localizations.dart';
 
 class ResultPage extends StatefulWidget {
@@ -223,7 +222,6 @@ class _ResultPageState extends State<ResultPage> {
               )
             ]))
       ]),
-      HelpMenu(),
     ])));
   }
 }

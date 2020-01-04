@@ -1,7 +1,8 @@
-import 'package:CalcDate/pages/menus/aboutMenu.dart';
 import 'package:CalcDate/pages/components/inputDate.dart';
 import 'package:flutter/material.dart';
 import 'package:CalcDate/localization/localizations.dart';
+import 'package:CalcDate/pages/components/services.dart';
+import 'package:CalcDate/pages/menus/aboutMenu.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -11,6 +12,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String _selectedItem = '';
+  List<Widget> checkTile =  [Icon(Icons.check), null, null, null];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,9 +33,14 @@ class _HomePageState extends State<HomePage> {
                     size: 30,
                   ),
                   onPressed: () {
-                    _settingModalBottomSheet(context);
+                    _onButtonPressed();
                   },
                 )),
+            Container(
+                padding: EdgeInsets.only(bottom: 12),
+                alignment: Alignment.bottomCenter,
+                child: Text(_selectedItem,
+                    style: TextStyle(fontSize: 20, color: Colors.white)))
           ]),
       resizeToAvoidBottomPadding: false,
       body: Center(
@@ -69,85 +78,131 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void _settingModalBottomSheet(context) {
+  void _onButtonPressed() {
     showModalBottomSheet(
         context: context,
-        builder: (BuildContext bc) {
+        builder: (context) {
           return Container(
-            height: 340,
             color: Colors.yellowAccent[400],
-            // foregroundDecoration: BoxDecoration(color: Colors.yellowAccent[400]),
-            child: new ListView(
-              children: <Widget>[
-                new ListTile(
-                    leading: new Icon(
-                      Icons.date_range,
-                      color: Colors.black,
-                    ),
-                    title: new Text(
-                       MyLocalizations.of(context).trans('Menu Title - Date'),
-                      style: TextStyle(color: Colors.black, fontSize: 15),
-                    ),
-                    subtitle: Text(
-                      MyLocalizations.of(context).trans('Menu Subtitle - Date'),
-                    ),
-                    trailing: DecoratedBox(
-                        child: Icon(Icons.check), decoration: BoxDecoration()),
-                    onTap: () => {}),
-                new ListTile(
-                  leading: new Icon(Icons.access_time, color: Colors.black45),
-                  title: new Text(
-                         MyLocalizations.of(context).trans('Menu Title - Time'),
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                  subtitle: Text(
-                      MyLocalizations.of(context).trans('Menu Subtitle - Time'),
-                  ),
-                  trailing:
-                      DecoratedBox(child: null, decoration: BoxDecoration()),
-                  onTap: () => {},
+            height: 350,
+            child: Container(
+              child: _buildBottomNavigationMenu(),
+              decoration: BoxDecoration(
+                color: Colors.yellowAccent[400],
+                borderRadius: BorderRadius.only(
+                  topLeft: const Radius.circular(10),
+                  topRight: const Radius.circular(10),
                 ),
-                new ListTile(
-                  leading: new Icon(Icons.event_busy),
-                  title: new Text(
-                      MyLocalizations.of(context).trans('Menu Title - Work day'),
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                  subtitle: Text(
-                        MyLocalizations.of(context).trans('Menu Subtitle - Work day'),
-                  ),
-                  trailing:
-                      DecoratedBox(child: null, decoration: BoxDecoration()),
-                  onTap: () => {},
-                ),
-                new ListTile(
-                  leading: new Icon(Icons.filter_7),
-                  title: new Text(
-                         MyLocalizations.of(context).trans('Menu Title - Week day'),
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                  subtitle: Text(
-                      MyLocalizations.of(context).trans('Menu Subtitle - Week day'),
-                  ),
-                  trailing:
-                      DecoratedBox(child: null, decoration: BoxDecoration()),
-                  onTap: () => {},
-                ),
-                new ListTile(
-                  leading: new Icon(Icons.help_outline),
-                  title: new Text(
-                         MyLocalizations.of(context).trans('Menu Title - About'),
-                    style: TextStyle(color: Colors.black, fontSize: 15),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                    showDialog(
-                        context: context, builder: (context) => AboutMenu());
-                  },
-                ),
-              ],
+              ),
             ),
           );
         });
+  }
+
+  Column _buildBottomNavigationMenu() {
+    if (_selectedItem ==
+        MyLocalizations.of(context).trans('Menu Title - Date')) {
+      checkTile = [Icon(Icons.check), null, null, null];
+    }
+    if (_selectedItem ==
+        MyLocalizations.of(context).trans('Menu Title - Time')) {
+      checkTile = [null, Icon(Icons.check), null, null];
+    }
+    if (_selectedItem ==
+        MyLocalizations.of(context).trans('Menu Title - Work day')) {
+      checkTile = [null, null, Icon(Icons.check), null];
+    }
+    if (_selectedItem ==
+        MyLocalizations.of(context).trans('Menu Title - Week day')) {
+      checkTile = [null, null, null, Icon(Icons.check)];
+    }
+
+    return Column(
+      children: <Widget>[
+        new ListTile(
+            leading: new Icon(
+              Icons.date_range,
+              color: Colors.black,
+            ),
+            title: new Text(
+              MyLocalizations.of(context).trans('Menu Title - Date'),
+              style: TextStyle(color: Colors.black, fontSize: 15),
+            ),
+            subtitle: Text(
+              MyLocalizations.of(context).trans('Menu Subtitle - Date'),
+            ),
+            trailing:
+                DecoratedBox(child: checkTile[0], decoration: BoxDecoration()),
+            onTap: () => {
+                  _selectItem(
+                      MyLocalizations.of(context).trans('Menu Title - Date'))
+                }),
+        new ListTile(
+          leading: new Icon(Icons.access_time, color: Colors.black45),
+          title: new Text(
+            MyLocalizations.of(context).trans('Menu Title - Time'),
+            style: TextStyle(color: Colors.black, fontSize: 15),
+          ),
+          subtitle: Text(
+            MyLocalizations.of(context).trans('Menu Subtitle - Time'),
+          ),
+          trailing:
+              DecoratedBox(child: checkTile[1], decoration: BoxDecoration()),
+          onTap: () => {
+            _selectItem(MyLocalizations.of(context).trans('Menu Title - Time'))
+          },
+        ),
+        new ListTile(
+          leading: new Icon(Icons.event_busy),
+          title: new Text(
+            MyLocalizations.of(context).trans('Menu Title - Work day'),
+            style: TextStyle(color: Colors.black, fontSize: 15),
+          ),
+          subtitle: Text(
+            MyLocalizations.of(context).trans('Menu Subtitle - Work day'),
+          ),
+          trailing:
+              DecoratedBox(child: checkTile[2], decoration: BoxDecoration()),
+          onTap: () => {
+            _selectItem(
+                MyLocalizations.of(context).trans('Menu Title - Work day'))
+          },
+        ),
+        new ListTile(
+          leading: new Icon(Icons.filter_7),
+          title: new Text(
+            MyLocalizations.of(context).trans('Menu Title - Week day'),
+            style: TextStyle(color: Colors.black, fontSize: 15),
+          ),
+          subtitle: Text(
+            MyLocalizations.of(context).trans('Menu Subtitle - Week day'),
+          ),
+          trailing:
+              DecoratedBox(child: checkTile[3], decoration: BoxDecoration()),
+          onTap: () => {
+            _selectItem(
+                MyLocalizations.of(context).trans('Menu Title - Week day'))
+          },
+        ),
+        new ListTile(
+          leading: new Icon(Icons.help_outline),
+          title: new Text(
+            MyLocalizations.of(context).trans('Menu Title - About'),
+            style: TextStyle(color: Colors.black, fontSize: 15),
+          ),
+          onTap: () {
+            _selectItem('');
+            showDialog(context: context, builder: (context) => AboutMenu());
+          },
+        ),
+      ],
+    );
+  }
+
+  void _selectItem(String name) {
+    Navigator.pop(context);
+    setState(() {
+      _selectedItem = name;
+    });
   }
 }

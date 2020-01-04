@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CalcDate/pages/menus/calendarMenu.dart';
+import 'package:CalcDate/pages/components/calendarMenu.dart';
 import 'package:CalcDate/localization/localizations.dart';
 
 class ChoiceMenu extends StatefulWidget {
