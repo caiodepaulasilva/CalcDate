@@ -11,15 +11,11 @@ class DatePickerMenu extends StatefulWidget {
         this.position = position;
 
   @override
-  State<StatefulWidget> createState() =>
-      _DatePickerMenuState(precision: this.precision, position: this.position);
+  State<StatefulWidget> createState() => _DatePickerMenuState();
 }
 
 class _DatePickerMenuState extends State<DatePickerMenu> {
-  final int precision;
-  final int position;
-
-  _DatePickerMenuState({this.precision, this.position});
+  _DatePickerMenuState({precision, position});
 
   DateTime _dateTime;
   String minDatetime = '0000-01-01';
@@ -84,10 +80,10 @@ class _DatePickerMenuState extends State<DatePickerMenu> {
               margin: EdgeInsets.only(bottom: 5.0),
               child: DatePickerWidget(
                 minDateTime: DateTime.parse(minDatetime),
-                maxDateTime: DateTime.parse(maxDateTime(position)),
+                maxDateTime: DateTime.parse(maxDateTime(widget.position)),
                 initialDateTime: DateTime.parse(initDatetime),
                 onConfirm: (dateTime, selectedIndex) {},
-                dateFormat: choiceFormat(precision),
+                dateFormat: choiceFormat(widget.precision),
                 locale: DateTimePickerLocale.pt_br,
                 pickerTheme: DateTimePickerTheme(
                   showTitle: false,

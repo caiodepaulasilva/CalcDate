@@ -1,3 +1,4 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter/material.dart';
 import 'package:CalcDate/pages/homepage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -28,7 +29,9 @@ class CalcDate extends StatelessWidget {
         return supportedLocales.first;
       },
       title: 'CalcDate',
-      home: new HomePage(),
+      home: BlocProvider(
+        child: new HomePage(),
+      ),
     );
   }
 }
