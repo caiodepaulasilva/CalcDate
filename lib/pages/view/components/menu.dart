@@ -1,4 +1,4 @@
-import 'package:CalcDate/pages/view/components/aboutMenu.dart';
+import 'package:calcdate/pages/view/components/aboutMenu.dart';
 import 'package:flutter/material.dart';
 
 class HelpMenu extends StatelessWidget {

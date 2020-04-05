@@ -1,6 +1,6 @@
 import 'dart:async';  
 import 'package:flutter/material.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 
 class MyLocalizationsDelegate extends LocalizationsDelegate<MyLocalizations> {  
   const MyLocalizationsDelegate();  

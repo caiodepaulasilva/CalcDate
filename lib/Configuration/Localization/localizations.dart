@@ -16,7 +16,7 @@ class MyLocalizations {
   Map<String, String> _sentences;  
   
   Future<bool> load() async {
-    String data = await rootBundle.loadString('lib/configuration/language/${this.locale.languageCode}.json');
+    String data = await rootBundle.loadString('lib/Configuration/Language/${this.locale.languageCode}.json');
     Map<String, dynamic> _result = json.decode(data);
 
     this._sentences = new Map();

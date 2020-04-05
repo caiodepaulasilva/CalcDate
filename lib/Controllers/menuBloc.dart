@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
-import 'package:CalcDate/views/menus/aboutMenu.dart';
+import 'package:calcdate/views/menus/aboutMenu.dart';
 
 class MenuController implements BlocBase {
   String resource = '';

@@ -1,7 +1,7 @@
-import 'package:CalcDate/views/components/inputDate.dart';
-import 'package:CalcDate/views/Menus/FeatureMenu.dart';
+import 'package:calcdate/views/components/inputDate.dart';
+import 'package:calcdate/views/Menus/FeatureMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);

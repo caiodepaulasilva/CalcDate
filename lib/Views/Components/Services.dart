@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
-import 'package:CalcDate/views/menus/aboutMenu.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
+import 'package:calcdate/views/menus/aboutMenu.dart';
 
 void services(context) {
   showModalBottomSheet(

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 
 class DatePickerMenu extends StatefulWidget {
   final precision;

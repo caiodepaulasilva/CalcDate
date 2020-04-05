@@ -1,6 +1,6 @@
-import 'package:CalcDate/pages/resultpage.dart';
+import 'package:calcdate/pages/resultpage.dart';
 import 'package:flutter/material.dart';
-import 'package:CalcDate/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 
 class Calculate extends StatelessWidget {
   final DateTime firstDate;

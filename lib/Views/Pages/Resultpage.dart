@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 
 class ResultPage extends StatefulWidget {
   final results;

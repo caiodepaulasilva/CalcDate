@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 
 class ResultsController implements BlocBase {

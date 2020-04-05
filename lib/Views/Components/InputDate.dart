@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:CalcDate/views/menus/choiceMenu.dart';
+import 'package:calcdate/views/menus/choiceMenu.dart';
 import 'package:flutter/services.dart';
-import 'package:CalcDate/views/components/calculate.dart';
-import 'package:CalcDate/configuration/localization/localizations.dart';
+import 'package:calcdate/views/components/calculate.dart';
+import 'package:calcdate/configuration/localization/localizations.dart';
 
 class InputDate extends StatefulWidget {
   InputDate({Key key});
