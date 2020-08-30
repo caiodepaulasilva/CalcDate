@@ -12,7 +12,7 @@ Um **objeto de cálculo** desenvolvido para os entusiastas de equações que env
 Para implementar novos recursos de cálculo, sugere-se respeitar a estrutura atual do código, de forma que cada nova _feature_ deve ser inserida como uma nova funcionalidade da calculadora, isto é, através de uma nova rota:
 
   ```dart
-//INSERIR ESCOPO DE CÓDIGO AQUI
+
 ```
 
 # Recursos Futuros
