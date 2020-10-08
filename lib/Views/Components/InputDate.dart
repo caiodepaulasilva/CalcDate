@@ -1,9 +1,9 @@
+import 'package:calcdate/Template/Localization/Localizations.dart';
+import 'package:calcdate/Views/Home/Menus/ChoiceMenu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:calcdate/views/menus/choiceMenu.dart';
 import 'package:flutter/services.dart';
 import 'package:calcdate/views/components/calculate.dart';
-import 'package:calcdate/configuration/localization/localizations.dart';
 
 class InputDate extends StatefulWidget {
   InputDate({Key key});
@@ -96,8 +96,7 @@ class _InputDateState extends State<InputDate> {
                       border: const OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.white, width: 0.0)),
-                      labelText: MyLocalizations.of(context)
-                          .trans("EntryDate 1 - HomePage"),
+                      labelText: Translate.of(context).key("EntryDate 1 - HomePage"),
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -117,7 +116,7 @@ class _InputDateState extends State<InputDate> {
                     onPressed: () async {
                       choiceMenu = await showDialog(
                           context: context,
-                          builder: (context) => ChoiceMenu(position: 1));
+                          builder: (context) => ChoiceMenu());
 
                       if (choiceMenu != null &&
                           Map.castFrom(choiceMenu)['date'] != null) {
@@ -181,8 +180,8 @@ class _InputDateState extends State<InputDate> {
                       border: const OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.white, width: 0.0)),
-                      labelText: MyLocalizations.of(context)
-                          .trans("EntryDate 2 - HomePage"),
+                      labelText: Translate.of(context)
+                          .key("EntryDate 2 - HomePage"),
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -202,7 +201,7 @@ class _InputDateState extends State<InputDate> {
                     onPressed: () async {
                       choiceMenu = await showDialog(
                           context: context,
-                          builder: (context) => ChoiceMenu(position: 1));
+                          builder: (context) => ChoiceMenu());
 
                       if (choiceMenu != null &&
                           Map.castFrom(choiceMenu)['date'] != null) {

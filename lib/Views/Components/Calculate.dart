@@ -1,6 +1,6 @@
+import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/views/pages/resultpage.dart';
 import 'package:flutter/material.dart';
-import 'package:calcdate/configuration/localization/localizations.dart';
 
 class Calculate extends StatelessWidget {
   final DateTime firstDate;
@@ -154,7 +154,7 @@ class Calculate extends StatelessWidget {
                   } else {}
                 },
                 child: Text(
-                    MyLocalizations.of(context).trans('Button - HomePage'),
+                    Translate.of(context).key('Button - HomePage'),
                     textAlign: TextAlign.start,
                     style: TextStyle(
                         fontSize: 20.0,

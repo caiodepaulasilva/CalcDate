@@ -1,7 +1,6 @@
+import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/views/components/inputDate.dart';
-import 'package:calcdate/views/Menus/FeatureMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:calcdate/configuration/localization/localizations.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -15,7 +14,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {   
     return Scaffold(
-      floatingActionButton: featureMenu(context),
       body: Center(
         child: Stack(children: <Widget>[
           Container(
@@ -38,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                     padding: EdgeInsets.only(left: 20.0, bottom: 10.0),
                     child: Text(
-                        MyLocalizations.of(context).trans('Text - HomePage'),
+                        Translate.of(context).key('Text - HomePage'),
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             fontSize: 20.0,
