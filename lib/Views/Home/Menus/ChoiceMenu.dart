@@ -90,37 +90,3 @@ class ChoiceMenu extends StatelessWidget {
             ])));
   }
 }
-
-//  Row(children: <Widget>[
-//             Expanded(
-//                 flex: 1,
-//                 child: Container(
-//                     alignment: Alignment.centerRight,
-//                     padding: EdgeInsets.only(top: 2.0, bottom: 8.0),
-//                     child: Text(
-//                       "Ex: 2019",
-//                       style: (TextTemplate.textThird),
-//                     )))
-//           ]),
-//           Row(children: <Widget>[
-//             Expanded(
-//               flex: 1,
-//               child: Container(
-//                   alignment: Alignment.centerRight,
-//                   padding: EdgeInsets.only(top: 2.0, bottom: 8.0),
-//                   child: Text(
-//                     "Ex: 11/2019",
-//                     style: (TextTemplate.textThird),
-//                   )),
-//             )
-//           ]),
-//           Row(children: <Widget>[
-//             Expanded(
-//                 flex: 1,
-//                 child: Container(
-//                   alignment: Alignment.centerRight,
-//                   padding: EdgeInsets.only(top: 2.0, bottom: 8.0),
-//                   child: Text("Ex: 10/11/2019",
-//                       style: (TextTemplate.textThird)),
-//                 ))
-//           ]),

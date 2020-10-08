@@ -41,9 +41,6 @@ class MyApp extends StatelessWidget {
             return supportedLocales.first;
           },
           title: 'CalcDate',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
           home: HomePage(),
         ));
   }
