@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 
             return supportedLocales.first;
           },
-          title: 'calcdate',
+          title: 'CalcDate',
           home: HomePage(),
         ));
   }

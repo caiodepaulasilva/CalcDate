@@ -1,6 +1,7 @@
 import 'package:calcdate/Business/resultBusiness.dart';
 import 'package:calcdate/Business/homeBusiness.dart';
 import 'package:calcdate/Template/Images.dart';
+import 'package:calcdate/Template/InfoMenu.dart';
 import 'package:calcdate/Template/Texts.dart';
 import 'package:flutter/material.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
@@ -72,22 +73,11 @@ class ResultPage extends StatelessWidget {
     }
 
     return Scaffold(
-        body: Center(
-            child: Stack(children: <Widget>[
-      Stack(children: <Widget>[
-        Padding(
-            padding: EdgeInsets.only(top: 22.0),
-            child: Align(
-                alignment: Alignment.topRight,
-                child: Icon(
-                  Icons.settings,
-                  size: 40,
-                ))),
-        SingleChildScrollView(
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
+        backgroundColor: Colors.black,
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
               Logo(),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
@@ -108,13 +98,11 @@ class ResultPage extends StatelessWidget {
                                   textAlign: TextAlign.start,
                                   style: TextTemplate.textSecondBold)),
                           Padding(
-                            padding: EdgeInsets.only(top: 4, bottom: 4),
-                            child: Text(
-                              resultBusiness.results['Years'].toString(),
-                              textAlign: TextAlign.center,
-                              style: TextTemplate.textFirstBold,
-                            ),
-                          ),
+                              padding: EdgeInsets.only(top: 4, bottom: 4),
+                              child: Text(
+                                  resultBusiness.results['Years'].toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextTemplate.textFirstBold))
                         ]),
                         TableRow(children: [
                           Padding(
@@ -126,13 +114,11 @@ class ResultPage extends StatelessWidget {
                                   textAlign: TextAlign.start,
                                   style: TextTemplate.textSecondBold)),
                           Padding(
-                            padding: EdgeInsets.only(top: 4, bottom: 4),
-                            child: Text(
-                              resultBusiness.results['Months'].toString(),
-                              textAlign: TextAlign.center,
-                              style: TextTemplate.textFirstBold,
-                            ),
-                          ),
+                              padding: EdgeInsets.only(top: 4, bottom: 4),
+                              child: Text(
+                                  resultBusiness.results['Months'].toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextTemplate.textFirstBold))
                         ]),
                         TableRow(children: [
                           Padding(
@@ -146,21 +132,18 @@ class ResultPage extends StatelessWidget {
                           Padding(
                               padding: EdgeInsets.only(top: 4, bottom: 4),
                               child: Text(
-                                resultBusiness.results['Days'].toString(),
-                                textAlign: TextAlign.center,
-                                style: TextTemplate.textFirstBold,
-                              )),
-                        ]),
+                                  resultBusiness.results['Days'].toString(),
+                                  textAlign: TextAlign.center,
+                                  style: TextTemplate.textFirstBold))
+                        ])
                       ])),
-              Text(
-                resultado(resultBusiness.results).toString(),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 18.0,
-                ),
-              ),
+              Text(resultado(resultBusiness.results).toString(),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 18.0,
+                  )),
               Padding(
                   padding: EdgeInsets.only(left: 25, top: 45, bottom: 5.0),
                   child: Text(
@@ -172,9 +155,7 @@ class ResultPage extends StatelessWidget {
                   child: Text(
                       "${Translate.of(context).key("EntryDate 2 - HomePage")}: ${homeBusiness.inputTwo}",
                       textAlign: TextAlign.left,
-                      style: TextTemplate.textSecondBold)),
-            ]))
-      ]),
-    ])));
+                      style: TextTemplate.textSecondBold))
+            , InfoMenu()]));
   }
 }
