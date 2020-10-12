@@ -1,5 +1,5 @@
-import 'package:calcdate/Business/CalculateBusiness.dart';
-import 'package:calcdate/Business/menuBusiness.dart';
+import 'package:calcdate/Business/resultBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
 import 'package:calcdate/Template/Colors.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/Template/Texts.dart';
@@ -11,8 +11,8 @@ import 'package:provider/provider.dart';
 class CalendarMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var menuBusiness = Provider.of<MenuStore>(context);
-    var calculateBusiness = Provider.of<CalculateStore>(context);
+    var homeBusiness = Provider.of<HomeBusiness>(context);
+    var resultBusiness = Provider.of<ResultBusiness>(context);
     var _dateTime = DateTime.now();
 
     return AlertDialog(
@@ -25,8 +25,10 @@ class CalendarMenu extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 child: DatePickerWidget(
-                  dateFormat: menuBusiness.format(),
+                  dateFormat: homeBusiness.format(),
                   initialDate: DateTime.now(),
+                  firstDate: DateTime.parse("0000-01-01"),
+                  lastDate: DateTime.parse("9999-12-31"),
                   onChange: (DateTime dateTime, List<int> index) {
                     _dateTime = dateTime;
                   },
@@ -71,13 +73,13 @@ class CalendarMenu extends StatelessWidget {
                                 .key("ButtonConfirm - DialogDate"),
                             style: TextTemplate.textSecond),
                         onPressed: () async {
-                          if (menuBusiness.inputId == 1) {
-                            calculateBusiness.dateOne = _dateTime;
-                          } else if (menuBusiness.inputId == 2) {
-                            calculateBusiness.dateTwo = _dateTime;
+                          if (homeBusiness.inputId == 1) {
+                            resultBusiness.dateOne = _dateTime;
+                          } else if (homeBusiness.inputId == 2) {
+                            resultBusiness.dateTwo = _dateTime;
                           }
                           Navigator.pop(
-                              context, await menuBusiness.parseText(_dateTime));
+                              context, await homeBusiness.parseText(_dateTime));
                         }))
               ]),
             ],

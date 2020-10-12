@@ -1,17 +1,20 @@
 import 'package:mobx/mobx.dart';
-part 'menuBusiness.g.dart';
+part 'homeBusiness.g.dart';
 
-class MenuStore = _MenuStoreBase with _$MenuStore;
+class HomeBusiness = _HomeBase with _$HomeBusiness;
 
-abstract class _MenuStoreBase with Store {
+abstract class _HomeBase with Store {
   @observable
-  String inputOne;
+  String inputOne = "";
 
   @observable
-  String inputTwo;
-  
+  String inputTwo = "";
+
   @observable
   int inputId;
+
+  @observable
+  bool calculate = false;
 
   @observable
   int precision;
@@ -26,6 +29,13 @@ abstract class _MenuStoreBase with Store {
       return '${datetime.day.toString().padLeft(2, '0')}-${datetime.month.toString().padLeft(2, '0')}-${datetime.year}';
     } else {
       return 'Invalid Format';
+    }
+  }
+
+  @action
+  void isCalculate() {
+    if (inputOne.length != 0 && inputTwo.length != 0) {
+      calculate = true;
     }
   }
 

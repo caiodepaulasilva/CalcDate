@@ -1,3 +1,4 @@
+import 'package:calcdate/Template/Images.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/Views/Home/Components/Calculate.dart';
 import 'package:calcdate/Views/Home/Components/InputOne.dart';
@@ -30,15 +31,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(top: 50, bottom: 30),
-                      child: Align(
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                            "lib/Assets/images/logo.png",
-                            width: 180,
-                            height: 180,
-                          ))),
+                  Logo(),
                   Padding(
                       padding: EdgeInsets.only(left: 30.0, bottom: 10.0),
                       child: Text(Translate.of(context).key('Text - HomePage'),

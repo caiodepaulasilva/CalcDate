@@ -1,4 +1,4 @@
-import 'package:calcdate/Business/menuBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/Views/Home/Menus/ChoiceMenu.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class InputTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var menuBusiness = Provider.of<MenuStore>(context);
+    var homeBusiness = Provider.of<HomeBusiness>(context);
     final inputTwo = new TextEditingController();
 
     return Padding(
@@ -32,6 +32,8 @@ class InputTwo extends StatelessWidget {
                     onPressed: () {
                       WidgetsBinding.instance.addPostFrameCallback((_) {
                         inputTwo.clear();
+                        homeBusiness.inputTwo = "";
+                        homeBusiness.calculate = false;
                       });
                     },
                     icon: Icon(
@@ -65,10 +67,12 @@ class InputTwo extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
               child: Icon(Icons.calendar_today),
               onPressed: () async {
-                menuBusiness.inputId = 2;
-                menuBusiness.inputTwo = await showDialog(
-                    context: context, builder: (context) => ChoiceMenu());
-                inputTwo.text = menuBusiness.inputTwo;
+                homeBusiness.inputId = 2;
+                homeBusiness.inputTwo = await showDialog(
+                        context: context, builder: (context) => ChoiceMenu()) ??
+                    "";
+                inputTwo.text = homeBusiness.inputTwo;
+                homeBusiness.isCalculate();
               },
             ),
           ),

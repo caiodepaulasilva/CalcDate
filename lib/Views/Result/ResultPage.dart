@@ -1,4 +1,7 @@
-import 'package:calcdate/Business/CalculateBusiness.dart';
+import 'package:calcdate/Business/resultBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
+import 'package:calcdate/Template/Images.dart';
+import 'package:calcdate/Template/Texts.dart';
 import 'package:flutter/material.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:provider/provider.dart';
@@ -6,7 +9,8 @@ import 'package:provider/provider.dart';
 class ResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var calculateBusiness = Provider.of<CalculateStore>(context);
+    var resultBusiness = Provider.of<ResultBusiness>(context);
+    var homeBusiness = Provider.of<HomeBusiness>(context);
 
     String resultado(Map<String, int> results) {
       var year;
@@ -70,13 +74,6 @@ class ResultPage extends StatelessWidget {
     return Scaffold(
         body: Center(
             child: Stack(children: <Widget>[
-      Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [Colors.black, Colors.black])),
-      ),
       Stack(children: <Widget>[
         Padding(
             padding: EdgeInsets.only(top: 22.0),
@@ -91,28 +88,12 @@ class ResultPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-              Padding(
-                  padding: EdgeInsets.only(top: 50, bottom: 30),
-                  child: Align(
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                        "lib/Assets/images/logo.png",
-                        width: 180,
-                        height: 180,
-                      ))),
-              Padding(
-                  padding: EdgeInsets.only(left: 25.0),
-                  child: Text(Translate.of(context).key("Text - ResultPage"),
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white))),
+              Logo(),
               Padding(
                   padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   child: Table(
                       columnWidths: {
-                        1: FixedColumnWidth(140),
+                        1: FixedColumnWidth(160),
                         2: FixedColumnWidth(80)
                       },
                       border: TableBorder.all(width: 2.0, color: Colors.white),
@@ -122,89 +103,76 @@ class ResultPage extends StatelessWidget {
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                                Translate.of(context)
-                                    .key("Year Title - ResultPage"),
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0,
-                                ),
-                              )),
+                                  Translate.of(context)
+                                      .key("Year Title - ResultPage"),
+                                  textAlign: TextAlign.start,
+                                  style: TextTemplate.textSecondBold)),
                           Padding(
-                              padding: EdgeInsets.only(top: 4, bottom: 4),
-                              child: Text(
-                                calculateBusiness.results['Years'].toString(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 22.0,
-                                ),
-                              )),
+                            padding: EdgeInsets.only(top: 4, bottom: 4),
+                            child: Text(
+                              resultBusiness.results['Years'].toString(),
+                              textAlign: TextAlign.center,
+                              style: TextTemplate.textFirstBold,
+                            ),
+                          ),
                         ]),
                         TableRow(children: [
                           Padding(
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                                Translate.of(context)
-                                    .key("Month Title - ResultPage"),
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0,
-                                ),
-                              )),
+                                  Translate.of(context)
+                                      .key("Month Title - ResultPage"),
+                                  textAlign: TextAlign.start,
+                                  style: TextTemplate.textSecondBold)),
                           Padding(
-                              padding: EdgeInsets.only(top: 4, bottom: 4),
-                              child: Text(
-                                calculateBusiness.results['Months'].toString(),
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 22.0,
-                                ),
-                              )),
+                            padding: EdgeInsets.only(top: 4, bottom: 4),
+                            child: Text(
+                              resultBusiness.results['Months'].toString(),
+                              textAlign: TextAlign.center,
+                              style: TextTemplate.textFirstBold,
+                            ),
+                          ),
                         ]),
                         TableRow(children: [
                           Padding(
                               padding:
                                   EdgeInsets.only(top: 4, left: 8, bottom: 4),
                               child: Text(
-                                Translate.of(context)
-                                    .key("Day Title - ResultPage"),
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18.0,
-                                ),
-                              )),
+                                  Translate.of(context)
+                                      .key("Day Title - ResultPage"),
+                                  textAlign: TextAlign.start,
+                                  style: TextTemplate.textSecondBold)),
                           Padding(
                               padding: EdgeInsets.only(top: 4, bottom: 4),
                               child: Text(
-                                calculateBusiness.results['Days'].toString(),
+                                resultBusiness.results['Days'].toString(),
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 22.0,
-                                ),
+                                style: TextTemplate.textFirstBold,
                               )),
                         ]),
                       ])),
               Text(
-                resultado(calculateBusiness.results).toString(),
+                resultado(resultBusiness.results).toString(),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w300,
-                  fontSize: 17.0,
+                  fontSize: 18.0,
                 ),
-              )
+              ),
+              Padding(
+                  padding: EdgeInsets.only(left: 25, top: 45, bottom: 5.0),
+                  child: Text(
+                      "${Translate.of(context).key("EntryDate 1 - HomePage")}: ${homeBusiness.inputOne}",
+                      textAlign: TextAlign.left,
+                      style: TextTemplate.textSecondBold)),
+              Padding(
+                  padding: EdgeInsets.only(left: 25),
+                  child: Text(
+                      "${Translate.of(context).key("EntryDate 2 - HomePage")}: ${homeBusiness.inputTwo}",
+                      textAlign: TextAlign.left,
+                      style: TextTemplate.textSecondBold)),
             ]))
       ]),
     ])));

@@ -1,4 +1,4 @@
-import 'package:calcdate/Business/menuBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/Views/Home/Menus/ChoiceMenu.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class InputOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var menuBusiness = Provider.of<MenuStore>(context);
+    var homeBusiness = Provider.of<HomeBusiness>(context);
     final inputOne = new TextEditingController();
 
     return Padding(
@@ -32,6 +32,8 @@ class InputOne extends StatelessWidget {
                     onPressed: () {
                       WidgetsBinding.instance.addPostFrameCallback((_) {
                         inputOne.clear();
+                        homeBusiness.inputOne = "";
+                        homeBusiness.calculate = false;
                       });
                     },
                     icon: Icon(
@@ -65,10 +67,11 @@ class InputOne extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 5.0),
               child: Icon(Icons.calendar_today),
               onPressed: () async {
-                menuBusiness.inputId = 1;
-                menuBusiness.inputOne = await showDialog(
-                    context: context, builder: (context) => ChoiceMenu());
-                inputOne.text = menuBusiness.inputOne;
+                homeBusiness.inputId = 1;
+                homeBusiness.inputOne = await showDialog(
+                    context: context, builder: (context) => ChoiceMenu()) ?? "";
+                inputOne.text = homeBusiness.inputOne;
+                homeBusiness.isCalculate();
               },
             ),
           ),

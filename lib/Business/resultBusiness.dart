@@ -1,9 +1,9 @@
 import 'package:mobx/mobx.dart';
-part 'CalculateBusiness.g.dart';
+part 'resultBusiness.g.dart';
 
-class CalculateStore = _CalculateStoreBase with _$CalculateStore;
+class ResultBusiness = _ResultBase with _$ResultBusiness;
 
-abstract class _CalculateStoreBase with Store {
+abstract class _ResultBase with Store {
   @observable
   DateTime dateOne;
 

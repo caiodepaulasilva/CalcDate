@@ -3,8 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:calcdate/Template/Localization/Localizationsdelegate.dart';
 import 'package:calcdate/Views/Home/Homepage.dart';
-import 'package:calcdate/Business/CalculateBusiness.dart';
-import 'package:calcdate/Business/menuBusiness.dart';
+import 'package:calcdate/Business/resultBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: [
-          Provider<CalculateStore>.value(value: CalculateStore()),
-          Provider<MenuStore>.value(value: MenuStore())
+          Provider<ResultBusiness>.value(value: ResultBusiness()),
+          Provider<HomeBusiness>.value(value: HomeBusiness())
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
 
             return supportedLocales.first;
           },
-          title: 'CalcDate',
+          title: 'calcdate',
           home: HomePage(),
         ));
   }

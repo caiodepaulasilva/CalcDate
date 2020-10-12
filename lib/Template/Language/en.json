@@ -6,7 +6,7 @@
     "Text - DialogPrecision": "Choose a format:",
     "Button 1 - DialogPrecision": "Only year",
     "Button 2 - DialogPrecision": "Month and year",
-    "Button 3 - DialogPrecision": "Day, month and year",
+    "Button 3 - DialogPrecision": "Day and month and year",
     "Text - DialogDate": "Select date:",
     "ButtonCancel - DialogDate": "Cancel",
     "ButtonConfirm - DialogDate": "Confirm",

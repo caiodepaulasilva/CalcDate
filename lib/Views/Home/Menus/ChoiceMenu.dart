@@ -1,4 +1,4 @@
-import 'package:calcdate/Business/menuBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
 import 'package:calcdate/Template/Colors.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/Template/Texts.dart';
@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class ChoiceMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var menuBusiness = Provider.of<MenuStore>(context);
+    var homeBusiness = Provider.of<HomeBusiness>(context);
 
     return AlertDialog(
         title: Text(Translate.of(context).key("Text - DialogPrecision")),
@@ -33,7 +33,7 @@ class ChoiceMenu extends StatelessWidget {
                                     .key("Button 1 - DialogPrecision"),
                                 style: TextTemplate.textSecond),
                             onPressed: () async {
-                              menuBusiness.precision = 1;
+                              homeBusiness.precision = 1;
                               Navigator.pop(
                                   context,
                                   await showDialog(
@@ -56,7 +56,7 @@ class ChoiceMenu extends StatelessWidget {
                                     .key("Button 2 - DialogPrecision"),
                                 style: TextTemplate.textSecond),
                             onPressed: () async {
-                              menuBusiness.precision = 2;
+                              homeBusiness.precision = 2;
                               Navigator.pop(
                                   context,
                                   await showDialog(
@@ -79,7 +79,7 @@ class ChoiceMenu extends StatelessWidget {
                                     .key("Button 3 - DialogPrecision"),
                                 style: TextTemplate.textSecond),
                             onPressed: () async {
-                              menuBusiness.precision = 3;
+                              homeBusiness.precision = 3;
                               Navigator.pop(
                                   context,
                                   await showDialog(

@@ -1,4 +1,5 @@
-import 'package:calcdate/Business/CalculateBusiness.dart';
+import 'package:calcdate/Business/homeBusiness.dart';
+import 'package:calcdate/Business/resultBusiness.dart';
 import 'package:calcdate/Template/Colors.dart';
 import 'package:calcdate/Template/Localization/Localizations.dart';
 import 'package:calcdate/Template/Texts.dart';
@@ -9,7 +10,8 @@ import 'package:provider/provider.dart';
 class Calculate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var calculateBusiness = Provider.of<CalculateStore>(context);
+    var homeBusiness = Provider.of<HomeBusiness>(context);
+    var resultBusiness = Provider.of<ResultBusiness>(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -24,9 +26,11 @@ class Calculate extends StatelessWidget {
               color: ColorTemplate.buttonFirst,
               splashColor: Colors.limeAccent[300],
               onPressed: () {
-                calculateBusiness.calculate();
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResultPage()));
+                if (homeBusiness.calculate) {
+                  resultBusiness.calculate();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ResultPage()));
+                }
               },
               child: Text(Translate.of(context).key('Button - HomePage'),
                   textAlign: TextAlign.center, style: TextTemplate.textFirst),
