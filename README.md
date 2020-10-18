@@ -16,8 +16,6 @@ Para implementar novos recursos de cálculo, sugere-se respeitar a estrutura atu
 ```
 
 # Recursos Futuros
-No que se refere aos recursos futuros, existem um pequeno planejamento no qual algumas funcionalidades já se encontram em desenvolvimento e devem ser implementadas em nova atualização. Veja:
-<br>
 
  <img align="right" src="https://user-images.githubusercontent.com/36136627/71374805-dc557200-259a-11ea-9f8a-45fbafaba984.png" height="430">
  
