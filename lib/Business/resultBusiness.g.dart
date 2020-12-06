@@ -39,25 +39,25 @@ mixin _$ResultBusiness on _ResultBase, Store {
     });
   }
 
-  final _$resultsAtom = Atom(name: '_ResultBase.results');
+  final _$resultAtom = Atom(name: '_ResultBase.result');
 
   @override
-  Map<String, int> get results {
-    _$resultsAtom.reportRead();
-    return super.results;
+  DateResult get result {
+    _$resultAtom.reportRead();
+    return super.result;
   }
 
   @override
-  set results(Map<String, int> value) {
-    _$resultsAtom.reportWrite(value, super.results, () {
-      super.results = value;
+  set result(DateResult value) {
+    _$resultAtom.reportWrite(value, super.result, () {
+      super.result = value;
     });
   }
 
   final _$_ResultBaseActionController = ActionController(name: '_ResultBase');
 
   @override
-  Map<String, int> calculate() {
+  dynamic calculate() {
     final _$actionInfo = _$_ResultBaseActionController.startAction(
         name: '_ResultBase.calculate');
     try {
@@ -72,7 +72,7 @@ mixin _$ResultBusiness on _ResultBase, Store {
     return '''
 dateOne: ${dateOne},
 dateTwo: ${dateTwo},
-results: ${results}
+result: ${result}
     ''';
   }
 }
