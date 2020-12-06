@@ -15,7 +15,7 @@ class ChoiceMenu extends StatelessWidget {
         title: Text(Translate.of(context).key("Text - DialogPrecision")),
         content: Container(
             width: 400,
-            height: 200,
+            height: 170,
             decoration: BoxDecoration(color: Colors.white),
             child: new Column(children: <Widget>[
               Row(children: <Widget>[

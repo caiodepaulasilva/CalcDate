@@ -4,7 +4,7 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(top: 50, bottom: 30),
+        padding: EdgeInsets.only(top: 80, bottom: 30),
         child: Align(
             alignment: Alignment.center,
             child: Image.asset(

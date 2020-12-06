@@ -33,13 +33,14 @@ class CalendarMenu extends StatelessWidget {
                     _dateTime = dateTime;
                   },
                   locale: DateTimePickerLocale.pt_br,
+
                   pickerTheme: DateTimePickerTheme(
                     backgroundColor: Colors.blueGrey[50],
                     cancelTextStyle: TextTemplate.textFirst,
                     confirmTextStyle: TextTemplate.textFirst,
                     itemTextStyle: TextStyle(color: Colors.black),
                     pickerHeight: 160.0,
-                    itemHeight: 30.0,
+                    itemHeight: 37.0,
                   ),
                 ),
               ),
